@@ -6,31 +6,30 @@ about:
   links:
     - text: GitHub
       icon: github
-      href: https://github.com/YOUR_GITHUB
+      href: https://github.com/erikwoj
     - text: LinkedIn
       icon: linkedin
-      href: https://www.linkedin.com/in/YOUR_LINKEDIN/
-    - text: Twitter
-      icon: twitter
-      href: https://twitter.com/YOUR_SOCIAL_MEDIA
+      href: https://www.linkedin.com/in/erikwojcik/
+    - text: Instagram
+      icon: instagram
+      href: https://instagram.com/erikwoj
     - text: Email
       icon: envelope
-      href: mailto:YOUR_EMAIL@geneseo.edu
+      href: mailto:erw7@geneseo.edu
     - text: Résumé
       icon: file-pd
-      href: https://YOUR_GITHUB.github.io/YOUR_RESUME.pdf
+      href: https://YOUR_GITHUB.github.io/Erik R. Wojcik Resume 2023.pdf
 ---
 
 
 I am a student at State University of New York at Geneseo.
 
-I am interested in ...
+I am interested in Finance and Wealth Management
 
-I enjoy ...
 
 
 ## Education
 
 **State University of New York at Geneseo**, 2023<br>
-- B.A./B.S. in YOUR MAJOR<br>
-- YOUR MINOR
+- B.A./B.S. in Business Administration<br>
+- Data Analytics
