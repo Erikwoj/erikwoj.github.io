@@ -1,5 +1,5 @@
 ---
-title: "Your Name" 
+title: "Erik Wojcik" 
 about:
   template: solana
   image: img/logo.png
