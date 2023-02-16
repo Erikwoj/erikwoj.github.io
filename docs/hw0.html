@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Awesome Me">
-<meta name="dcterms.date" content="2023-02-16">
 
-<title>Erik Wojcik - Habbit</title>
+<title>Erik Wojcik - Homework 0</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -128,7 +126,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </head>
 
-<body class="floating nav-fixed">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -171,57 +169,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
-    <nav id="TOC" role="doc-toc" class="toc-active">
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#quarterly-results" id="toc-quarterly-results" class="nav-link active" data-scroll-target="#quarterly-results"><span class="toc-section-number">0.1</span>  Quarterly Results</a>
+  <li><a href="#ggplot" id="toc-ggplot" class="nav-link active" data-scroll-target="#ggplot">ggplot</a>
   <ul class="collapse">
-  <li><a href="#by-product" id="toc-by-product" class="nav-link" data-scroll-target="#by-product"><span class="toc-section-number">0.1.1</span>  By Product</a></li>
-  <li><a href="#by-region" id="toc-by-region" class="nav-link" data-scroll-target="#by-region"><span class="toc-section-number">0.1.2</span>  By Region</a></li>
+  <li><a href="#why-ggplot-is-awesome" id="toc-why-ggplot-is-awesome" class="nav-link" data-scroll-target="#why-ggplot-is-awesome">Why ggplot is awesome</a></li>
   </ul></li>
-  <li><a href="#example-title" id="toc-example-title" class="nav-link" data-scroll-target="#example-title">Example Title</a>
-  <ul class="collapse">
-  <li><a href="#section-x" id="toc-section-x" class="nav-link" data-scroll-target="#section-x"><span class="toc-section-number">0.2</span>  Section X</a></li>
-  </ul></li>
-  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1"><span class="toc-section-number">1</span>  Section 1</a>
-  <ul class="collapse">
-  <li><a href="#section-1.1" id="toc-section-1.1" class="nav-link" data-scroll-target="#section-1.1"><span class="toc-section-number">1.1</span>  Section 1.1</a></li>
-  <li><a href="#section-1.2" id="toc-section-1.2" class="nav-link" data-scroll-target="#section-1.2"><span class="toc-section-number">1.2</span>  Section 1.2</a></li>
-  </ul></li>
-  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2"><span class="toc-section-number">2</span>  Section 2</a></li>
   </ul>
 </nav>
-</nav>
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Habbit</h1>
+<h1 class="title">Homework 0</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Awesome Me </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">February 16, 2023</p>
-    </div>
-  </div>
   
     
   </div>
@@ -229,57 +202,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<section id="quarterly-results" class="level2 tabset tabset-pills" data-number="0.1">
-<h2 class="tabset tabset-pills anchored" data-number="0.1" data-anchor-id="quarterly-results"><span class="header-section-number">0.1</span> Quarterly Results</h2>
-<section id="by-product" class="level3" data-number="0.1.1">
-<h3 data-number="0.1.1" class="anchored" data-anchor-id="by-product"><span class="header-section-number">0.1.1</span> By Product</h3>
-<p>(tab content) 1</p>
-</section>
-<section id="by-region" class="level3" data-number="0.1.2">
-<h3 data-number="0.1.2" class="anchored" data-anchor-id="by-region"><span class="header-section-number">0.1.2</span> By Region</h3>
-<p>(tab content) 2</p>
+<section id="ggplot" class="level1">
+<h1>ggplot</h1>
+<section id="why-ggplot-is-awesome" class="level2">
+<h2 class="anchored" data-anchor-id="why-ggplot-is-awesome">Why ggplot is awesome</h2>
+<p>The following boxplot shows how the distribution of city MPG (<code>cty</code>) varies by a type of cars (<code>class</code>).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg) <span class="sc">+</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> class, <span class="at">y =</span> hwy))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg) <span class="sc">+</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> class, <span class="at">y =</span> cty, <span class="at">fill =</span> class))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="basic-example_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
+<p><img src="hw0_files/figure-html/mpg-box-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-</section>
-</section>
-<section id="example-title" class="level1 unnumbered">
-<h1 class="unnumbered">Example Title</h1>
-<p>Here is some example title.</p>
-<section id="section-x" class="level2" data-number="0.2">
-<h2 data-number="0.2" class="anchored" data-anchor-id="section-x"><span class="header-section-number">0.2</span> Section X</h2>
-<p>This is my introduction.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1</code></pre>
-</div>
-</div>
-</section>
-</section>
-<section id="section-1" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Section 1</h1>
-<p>Wake up</p>
-<section id="section-1.1" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="section-1.1"><span class="header-section-number">1.1</span> Section 1.1</h2>
-<p>Drink water</p>
-</section>
-<section id="section-1.2" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="section-1.2"><span class="header-section-number">1.2</span> Section 1.2</h2>
-<p>Sleep again</p>
-</section>
-</section>
-<section id="section-2" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Section 2</h1>
-<p>Wake up</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
