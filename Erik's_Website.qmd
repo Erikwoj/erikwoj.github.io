@@ -18,7 +18,7 @@ about:
       href: mailto:erw7@geneseo.edu
     - text: Résumé
       icon: file-pd
-      href: https://YOUR_GITHUB.github.io/Erik R. Wojcik Resume 2023.pdf
+      href: https://YOUR_GITHUB.github.io/ErikR.WojcikResume2023.pdf
 ---
 
 I am a student at State University of New York at Geneseo.

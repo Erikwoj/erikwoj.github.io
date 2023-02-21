@@ -14,6 +14,18 @@ knitr::opts_chunk$set(warning = F, message = F,
 
 ## Question 1
 
-Renovate your personal website on GitHub using Quarto.
+**Renovate your personal website on GitHub using Quarto.**
 
+✔️
+
+## Question 2
+
+**Provide ggplot codes to replicate the given figure.**
+
+```{r}
+ncdc_temp <- read_csv(
+  'https://bcdanl.github.io/data/ncdc_temp_cleaned.csv')
+
+
+```
 

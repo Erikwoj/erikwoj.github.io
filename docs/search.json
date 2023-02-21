@@ -53,7 +53,7 @@
     "href": "hw1.html",
     "title": "Homework 1",
     "section": "",
-    "text": "Renovate your personal website on GitHub using Quarto."
+    "text": "Renovate your personal website on GitHub using Quarto.\n✔️\n\n\n\nProvide ggplot codes to replicate the given figure.\n\nncdc_temp <- read_csv(\n  'https://bcdanl.github.io/data/ncdc_temp_cleaned.csv')"
   },
   {
     "objectID": "teamproj0.html",
