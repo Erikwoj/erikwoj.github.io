@@ -1,0 +1,19 @@
+---
+title: "Homework 1"
+format: html
+editor: visual
+---
+
+```{r setup, include = F}
+library(tidyverse)
+knitr::opts_chunk$set(warning = F, message = F,
+                      fig.height = 14, fig.width = 7)
+```
+
+# **DANL 310: Data Visualization and Presentation Homework Assignment 1**
+
+## Question 1
+
+Renovate your personal website on GitHub using Quarto.
+
+

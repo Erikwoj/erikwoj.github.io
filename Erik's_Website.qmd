@@ -23,12 +23,18 @@ about:
 
 I am a student at State University of New York at Geneseo.
 
-I am interested in Finance and Wealth Management
+I am interested in Finance and Wealth Management.
 
 ## Education
 
-**State University of New York at Geneseo**, 2023<br> - B.A./B.S. in Business Administration<br> - Data Analytics
+**State University of New York at Geneseo**, 2023<br> - Bachelor of Science in Business Administration<br> - Data Analytics
 
+## Professional Experience
 
+**M&T Bank / Wilmington Trust**, 2023<br> - Incoming Management Development Program Trainee (Wealth Management)
 
+**State University of New York at Geneseo**, 2022-2023<br> - Financial Aid Office Assistant (Work Study Program)
 
+**State University of New York at Geneseo**, 2022-2023<br> - Finance and Data Analytics Research Assistant
+
+**Rich Products**, 2021-2022<br> - Business Analytics Intern

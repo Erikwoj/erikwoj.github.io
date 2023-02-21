@@ -32,18 +32,32 @@
     "href": "Erik's_Website.html",
     "title": "Erik Wojcik",
     "section": "",
-    "text": "I am a student at State University of New York at Geneseo.\nI am interested in Finance and Wealth Management"
+    "text": "I am a student at State University of New York at Geneseo.\nI am interested in Finance and Wealth Management."
   },
   {
     "objectID": "Erik's_Website.html#education",
     "href": "Erik's_Website.html#education",
     "title": "Erik Wojcik",
     "section": "Education",
-    "text": "Education\nState University of New York at Geneseo, 2023 - B.A./B.S. in Business Administration - Data Analytics"
+    "text": "Education\nState University of New York at Geneseo, 2023 - Bachelor of Science in Business Administration - Data Analytics"
+  },
+  {
+    "objectID": "Erik's_Website.html#professional-experience",
+    "href": "Erik's_Website.html#professional-experience",
+    "title": "Erik Wojcik",
+    "section": "Professional Experience",
+    "text": "Professional Experience\nM&T Bank / Wilmington Trust, 2023 - Incoming Management Development Program Trainee (Wealth Management)\nState University of New York at Geneseo, 2022-2023 - Financial Aid Office Assistant (Work Study Program)\nState University of New York at Geneseo, 2022-2023 - Finance and Data Analytics Research Assistant\nRich Products, 2021-2022 - Business Analytics Intern"
   },
   {
     "objectID": "hw0.html",
     "href": "hw0.html",
+    "title": "Homework 1",
+    "section": "",
+    "text": "Renovate your personal website on GitHub using Quarto."
+  },
+  {
+    "objectID": "hw1.html",
+    "href": "hw1.html",
     "title": "Homework 1",
     "section": "",
     "text": "Renovate your personal website on GitHub using Quarto."

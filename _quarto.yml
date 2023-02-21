@@ -4,7 +4,7 @@ project:
   
 website:
   title: "Erik Wojcik"
-  page-footer: "Copyright 2023, YOUR NAME" 
+  page-footer: "Copyright 2023, Erik Wojcik" 
   reader-mode: false
   navbar:
     pinned: true
@@ -13,8 +13,8 @@ website:
         href: teamproj0.qmd
       - text: Homework
         menu:
-          - text: hw0
-            href: hw0.qmd
+          - text: hw1
+            href: hw1.qmd
             
 format:
   html:
