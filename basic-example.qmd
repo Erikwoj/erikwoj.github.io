@@ -1,68 +1,40 @@
 ---
-title: "Habbit"
-author: "Awesome Me"
-date: "`r format(Sys.time(), '%B %d, %Y')`"
-format:
-  html:
-    toc: true
-    toc-location: left
-    number-sections: true
-editor: visual
+title: "Erik Wojcik" 
+about:
+  template: solana
+  image: img/logo.png
+  links:
+    - text: GitHub
+      icon: github
+      href: https://github.com/erikwoj
+    - text: LinkedIn
+      icon: linkedin
+      href: https://www.linkedin.com/in/erikwojcik/
+    - text: Instagram
+      icon: instagram
+      href: https://instagram.com/erikwoj
+    - text: Email
+      icon: envelope
+      href: mailto:erw7@geneseo.edu
+    - text: Résumé
+      icon: file-pd
+      href: https://YOUR_GITHUB.github.io/Erik R. Wojcik Resume 2023.pdf
 ---
 
-```{r setup, include = F}
-library(tidyverse)
-library(skimr)   # a better summary of data.frame
-library(scales)  # scales for ggplot
-library(ggthemes)  # additional ggplot themes
-theme_set(theme_minimal()) # setting the minimal theme for ggplot
-# setting default chunk options
-knitr::opts_chunk$set(echo = T, eval = T,
-                      message=F, warning = F) 
-```
+I am a student at State University of New York at Geneseo.
 
+I am interested in Finance and Wealth Management.
 
-## Quarterly Results {.tabset .tabset-pills}
+## Education
 
-### By Product
+**State University of New York at Geneseo**, 2023<br> - Bachelor of Science in Business Administration<br> - Data Analytics
 
-(tab content) 1
+## Professional Experience
 
-### By Region
+**M&T Bank / Wilmington Trust**, 2023<br> - Incoming Management Development Program Trainee (Wealth Management)
 
-(tab content) 2
+**State University of New York at Geneseo**, 2022-2023<br> - Financial Aid Office Assistant (Work Study Program)
 
-```{r}
-library(tidyverse)
-ggplot(mpg) +
-  geom_boxplot(aes(x = class, y = hwy))
-```
+**State University of New York at Geneseo**, 2022-2023<br> - Finance and Data Analytics Research Assistant
 
-# Example Title {.unnumbered}
-
-Here is some example title.
-
-## Section X
-
-This is my introduction.
-
-```{r}
-x <- 1
-print(x)
-```
-
-# Section 1
-
-Wake up
-
-## Section 1.1
-
-Drink water
-
-## Section 1.2
-
-Sleep again
-
-# Section 2
-
-Wake up
+**Rich Products**, 2021-2022<br> - Business Analytics Intern

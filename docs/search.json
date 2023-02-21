@@ -2,30 +2,23 @@
   {
     "objectID": "basic-example.html",
     "href": "basic-example.html",
-    "title": "Habbit",
+    "title": "Erik Wojcik",
     "section": "",
-    "text": "(tab content) 1\n\n\n\n(tab content) 2\n\nlibrary(tidyverse)\nggplot(mpg) +\n  geom_boxplot(aes(x = class, y = hwy))"
+    "text": "I am a student at State University of New York at Geneseo.\nI am interested in Finance and Wealth Management."
   },
   {
-    "objectID": "basic-example.html#section-x",
-    "href": "basic-example.html#section-x",
-    "title": "Habbit",
-    "section": "0.2 Section X",
-    "text": "0.2 Section X\nThis is my introduction.\n\nx <- 1\nprint(x)\n\n[1] 1"
+    "objectID": "basic-example.html#education",
+    "href": "basic-example.html#education",
+    "title": "Erik Wojcik",
+    "section": "Education",
+    "text": "Education\nState University of New York at Geneseo, 2023 - Bachelor of Science in Business Administration - Data Analytics"
   },
   {
-    "objectID": "basic-example.html#section-1.1",
-    "href": "basic-example.html#section-1.1",
-    "title": "Habbit",
-    "section": "1.1 Section 1.1",
-    "text": "1.1 Section 1.1\nDrink water"
-  },
-  {
-    "objectID": "basic-example.html#section-1.2",
-    "href": "basic-example.html#section-1.2",
-    "title": "Habbit",
-    "section": "1.2 Section 1.2",
-    "text": "1.2 Section 1.2\nSleep again"
+    "objectID": "basic-example.html#professional-experience",
+    "href": "basic-example.html#professional-experience",
+    "title": "Erik Wojcik",
+    "section": "Professional Experience",
+    "text": "Professional Experience\nM&T Bank / Wilmington Trust, 2023 - Incoming Management Development Program Trainee (Wealth Management)\nState University of New York at Geneseo, 2022-2023 - Financial Aid Office Assistant (Work Study Program)\nState University of New York at Geneseo, 2022-2023 - Finance and Data Analytics Research Assistant\nRich Products, 2021-2022 - Business Analytics Intern"
   },
   {
     "objectID": "Erik's_Website.html",
