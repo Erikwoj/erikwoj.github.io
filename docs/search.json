@@ -28,25 +28,25 @@
     "text": "1.2 Section 1.2\nSleep again"
   },
   {
-    "objectID": "hw0.html",
-    "href": "hw0.html",
-    "title": "Homework 0",
-    "section": "",
-    "text": "The following boxplot shows how the distribution of city MPG (cty) varies by a type of cars (class).\n\nggplot(mpg) +\n  geom_boxplot(aes(x = class, y = cty, fill = class))"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
+    "objectID": "Erik's_Website.html",
+    "href": "Erik's_Website.html",
     "title": "Erik Wojcik",
     "section": "",
-    "text": "I am a student at State University of New York at Geneseo.\nI am interested in Finance and Wealth Management."
+    "text": "I am a student at State University of New York at Geneseo.\nI am interested in Finance and Wealth Management"
   },
   {
-    "objectID": "index.html#education",
-    "href": "index.html#education",
+    "objectID": "Erik's_Website.html#education",
+    "href": "Erik's_Website.html#education",
     "title": "Erik Wojcik",
     "section": "Education",
     "text": "Education\nState University of New York at Geneseo, 2023 - B.A./B.S. in Business Administration - Data Analytics"
+  },
+  {
+    "objectID": "hw0.html",
+    "href": "hw0.html",
+    "title": "Homework 1",
+    "section": "",
+    "text": "Renovate your personal website on GitHub using Quarto."
   },
   {
     "objectID": "teamproj0.html",

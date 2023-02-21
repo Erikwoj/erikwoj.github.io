@@ -1,5 +1,5 @@
 ---
-title: "Homework 0"
+title: "Homework 1"
 format: html
 editor: visual
 ---
@@ -10,15 +10,10 @@ knitr::opts_chunk$set(warning = F, message = F,
                       fig.height = 14, fig.width = 7)
 ```
 
-# ggplot
+# **DANL 310: Data Visualization and Presentation Homework Assignment 1**
 
-## Why ggplot is awesome
+## Question 1
 
-The following boxplot shows how the distribution of city MPG (`cty`) varies by a type of cars (`class`).
-
-```{r mpg-box, eval=T, echo=T}
-ggplot(mpg) +
-  geom_boxplot(aes(x = class, y = cty, fill = class))
-```
+Renovate your personal website on GitHub using Quarto.
 
 
