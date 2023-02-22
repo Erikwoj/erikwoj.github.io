@@ -26,6 +26,8 @@ knitr::opts_chunk$set(warning = F, message = F,
 ncdc_temp <- read_csv(
   'https://bcdanl.github.io/data/ncdc_temp_cleaned.csv')
 
+ggplot(ncdc_temp, aes(x=month, y=temperature, color=location, group=location))+
+  stat_smooth()+labs(y="Temperature(°F)", x="Month")
+
 
 ```
-

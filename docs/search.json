@@ -21,6 +21,20 @@
     "text": "Professional Experience\nM&T Bank / Wilmington Trust, 2023 - Incoming Management Development Program Trainee (Wealth Management)\nState University of New York at Geneseo, 2022-2023 - Financial Aid Office Assistant (Work Study Program)\nState University of New York at Geneseo, 2022-2023 - Finance and Data Analytics Research Assistant\nRich Products, 2021-2022 - Business Analytics Intern"
   },
   {
+    "objectID": "danl-web-template/index.html",
+    "href": "danl-web-template/index.html",
+    "title": "Erik Wojcik",
+    "section": "",
+    "text": "I am a student at State University of New York at Geneseo.\nI am interested in …\nI enjoy …"
+  },
+  {
+    "objectID": "danl-web-template/index.html#education",
+    "href": "danl-web-template/index.html#education",
+    "title": "Erik Wojcik",
+    "section": "Education",
+    "text": "Education\nState University of New York at Geneseo, 2023 - B.A./B.S. in YOUR MAJOR - YOUR MINOR"
+  },
+  {
     "objectID": "Erik's_Website.html",
     "href": "Erik's_Website.html",
     "title": "Erik Wojcik",
@@ -53,7 +67,7 @@
     "href": "hw1.html",
     "title": "Homework 1",
     "section": "",
-    "text": "Renovate your personal website on GitHub using Quarto.\n✔️\n\n\n\nProvide ggplot codes to replicate the given figure.\n\nncdc_temp <- read_csv(\n  'https://bcdanl.github.io/data/ncdc_temp_cleaned.csv')"
+    "text": "Renovate your personal website on GitHub using Quarto.\n✔️\n\n\n\nProvide ggplot codes to replicate the given figure.\n\nncdc_temp <- read_csv(\n  'https://bcdanl.github.io/data/ncdc_temp_cleaned.csv')\n\nggplot(ncdc_temp, aes(x=month, y=temperature, color=location, group=location))+\n  stat_smooth()+labs(y=\"Temperature(°F)\", x=\"Month\")"
   },
   {
     "objectID": "teamproj0.html",
