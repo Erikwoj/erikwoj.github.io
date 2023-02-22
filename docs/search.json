@@ -67,7 +67,7 @@
     "href": "hw1.html",
     "title": "Homework 1",
     "section": "",
-    "text": "Renovate your personal website on GitHub using Quarto.\n✔️\n\n\n\nProvide ggplot codes to replicate the given figure.\n\nncdc_temp <- read_csv(\n  'https://bcdanl.github.io/data/ncdc_temp_cleaned.csv')\n\nggplot(ncdc_temp, aes(x=month, y=temperature, color=location, group=location))+\n  stat_smooth()+labs(y=\"Temperature(°F)\", x=\"Month\")"
+    "text": "Renovate your personal website on GitHub using Quarto.\n✔️\n\n\n\nProvide ggplot codes to replicate the given figure.\n\nncdc_temp <- read_csv(\n  'https://bcdanl.github.io/data/ncdc_temp_cleaned.csv')\n\nggplot(ncdc_temp, aes(x=month, y=temperature, color=location, group=location))+\n  stat_smooth()+labs(y=\"Temperature(°F)\", x=\"Month\")\n\n\n\n\n\n\n\n\nggplot(ncdc_temp, aes(x=month, y=temperature)) + \n  geom_boxplot(fill=\"gray\")+\n  labs(x=\"Month\", y = \"Mean Temperature(°F)\")+\n  theme_classic()"
   },
   {
     "objectID": "teamproj0.html",

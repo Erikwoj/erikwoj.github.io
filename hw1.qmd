@@ -31,3 +31,14 @@ ggplot(ncdc_temp, aes(x=month, y=temperature, color=location, group=location))+
 
 
 ```
+## Question 2b
+
+```{r}
+ggplot(ncdc_temp, aes(x=month, y=temperature)) + 
+  geom_boxplot(fill="gray")+
+  labs(x="Month", y = "Mean Temperature(°F)")+
+  theme_classic()
+```
+
+
+
