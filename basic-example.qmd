@@ -21,7 +21,7 @@ about:
       href: https://erikwoj.github.io/Erik R. Wojcik Resume 2023.pdf
 ---
 
-My name is Erik Wojcik and I am Business Administration Major with a Data Analytics Minor at The State University of New York at Geneseo. I am interested in helping others through my knowledge in Finance and Wealth Management. 
+I am Business Administration Major with a Minor in Data Analytics at The State University of New York at Geneseo. I am interested in helping others through my knowledge in Finance and Wealth Management. 
 
 ## Education
 
