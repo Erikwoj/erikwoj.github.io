@@ -21,7 +21,7 @@ about:
       href: https://erikwoj.github.io/Erik R. Wojcik Resume 2023.pdf
 ---
 
-My name is Erik Wojcik and I am Business Administration Major at The State University of New York at Geneseo. I am interested in Finance and Wealth Management. 
+My name is Erik Wojcik and I am Business Administration Major with a Data Analytics Minor at The State University of New York at Geneseo. I am interested in helping others through my knowledge in Finance and Wealth Management. 
 
 ## Education
 
@@ -31,8 +31,8 @@ My name is Erik Wojcik and I am Business Administration Major at The State Unive
 
 **M&T Bank / Wilmington Trust** | Buffalo, New York | Summer 2023<br> - Incoming Management Development Program Trainee (Wealth Management)
 
-**State University of New York at Geneseo** |Geneseo, New York | 2022-Present<br> - Financial Aid Office Assistant (Work Study Program)
+**State University of New York at Geneseo** | Geneseo, New York | 2022-Present<br> - Financial Aid Office Assistant (Work Study Program)
 
-**State University of New York at Geneseo** |Geneseo, New York | 2022-Present<br> - Finance and Data Analytics Research Assistant
+**State University of New York at Geneseo** | Geneseo, New York | 2022-Present<br> - Finance and Data Analytics Research Assistant
 
-**Rich Products** |Buffalo, New York | 2021-2022<br> - Business Analytics Intern
+**Rich Products** | Buffalo, New York | 2021-2022<br> - Business Analytics Intern
