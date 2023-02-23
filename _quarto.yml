@@ -13,8 +13,8 @@ website:
         href: teamproj0.qmd
       - text: Homework
         menu:
-          - text: hw1
-            href: hw1.qmd
+          - text: Homework 1
+            href: DANL310_hw1_Wojcik_Erik.qmd
             
 format:
   html:
