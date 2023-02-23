@@ -75,7 +75,7 @@ popgrowth_df <- read_csv(
 x <- ggplot(data = popgrowth_df, mapping = aes(x = reorder(state, popgrowth), popgrowth, fill=region)) + 
   geom_bar(stat = "identity") + coord_flip()+
   labs(x="Population Growth, 2000 to 2010", y = "State In Order of Population Growth")
-ggsave("cowfiltered.png", Plot, width = 15, height = 49)
+ggsave("popgrowth_df.png", x, width = 15, height = 40)
 x
 
 ```
