@@ -51,7 +51,7 @@ ggplot(ncdc_temp, aes(x = temperature, y = month)) +
   theme_ridges()
 ```
 
-## Question 2c
+## Question 2d
 
 ```{r}
 ggplot(mtcars, aes(x=disp, y=mpg)) + 
@@ -59,7 +59,7 @@ ggplot(mtcars, aes(x=disp, y=mpg)) +
   labs(x="Displacement (cu. in.)", y = "fuel efficency(MPG)")
 ```
 
-## Question 2c
+## Question 2e
 
 ```{r}
 popgrowth_df <- read_csv(
@@ -82,7 +82,7 @@ ggplot(male_Aus, aes(x=height, y=bmi, shape=sport)) +
   scale_shape_manual(values = c(16, 22, 23, 24, 25))+labs(x="Height(cm)", y = "Percentage Body Fat")
 ```
 
-##Question 2g
+## Question 2g
 
 ```{r}
 titanic <- read_csv(
