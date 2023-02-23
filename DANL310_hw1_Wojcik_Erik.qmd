@@ -26,37 +26,44 @@ knitr::opts_chunk$set(warning = F, message = F,
 ncdc_temp <- read_csv(
   'https://bcdanl.github.io/data/ncdc_temp_cleaned.csv')
 
-ggplot(ncdc_temp, aes(x=month, y=temperature, color=location, group=location))+
+x<- ggplot(ncdc_temp, aes(x=month, y=temperature, color=location, group=location))+
   stat_smooth()+
   labs(y="Temperature(°F)", x="Month")
-
+ggsave("ncdc_temp2.png", x, width = 15, height = 10)
+x
 
 ```
 
 ## Question 2b
 
 ```{r}
-ggplot(ncdc_temp, aes(x=month, y=temperature)) + 
+x<- ggplot(ncdc_temp, aes(x=month, y=temperature)) + 
   geom_boxplot(fill="gray")+
   labs(x="Month", y = "Mean Temperature(°F)")+
   theme_classic()
+ggsave("ncdc_temp1.png", x, width = 15, height = 10)
+x
 ```
 
 ## Question 2c
 
 ```{r}
 library(ggridges)
-ggplot(ncdc_temp, aes(x = temperature, y = month)) +
+x<- ggplot(ncdc_temp, aes(x = temperature, y = month)) +
   geom_density_ridges(scale = 4, fill= "skyblue", color = "white")+
   theme_ridges()
+ggsave("ncdc.png", x, width = 15, height = 10)
+x
 ```
 
 ## Question 2d
 
 ```{r}
-ggplot(mtcars, aes(x=disp, y=mpg)) + 
+x<- ggplot(mtcars, aes(x=disp, y=mpg)) + 
   geom_point(aes(color = disp))+
   labs(x="Displacement (cu. in.)", y = "fuel efficency(MPG)")
+ggsave("mtcars.png", x, width = 15, height = 10)
+x
 ```
 
 ## Question 2e
@@ -65,9 +72,11 @@ ggplot(mtcars, aes(x=disp, y=mpg)) +
 popgrowth_df <- read_csv(
   'https://bcdanl.github.io/data/popgrowth.csv')
 
-ggplot(data = popgrowth_df, mapping = aes(x = reorder(state, popgrowth), popgrowth, fill=region)) + 
+x <- ggplot(data = popgrowth_df, mapping = aes(x = reorder(state, popgrowth), popgrowth, fill=region)) + 
   geom_bar(stat = "identity") + coord_flip()+
   labs(x="Population Growth, 2000 to 2010", y = "State In Order of Population Growth")
+ggsave("cowfiltered.png", Plot, width = 15, height = 49)
+x
 
 ```
 
@@ -77,9 +86,11 @@ ggplot(data = popgrowth_df, mapping = aes(x = reorder(state, popgrowth), popgrow
 male_Aus <- read_csv(
   'https://bcdanl.github.io/data/aus_athletics_male.csv')
 
-ggplot(male_Aus, aes(x=height, y=bmi, shape=sport)) +
+x <- ggplot(male_Aus, aes(x=height, y=bmi, shape=sport)) +
   geom_point(fill= "grey",color="red")+
   scale_shape_manual(values = c(16, 22, 23, 24, 25))+labs(x="Height(cm)", y = "Percentage Body Fat")
+ggsave("male_Aus.png", x, width = 15, height = 10)
+x
 ```
 
 ## Question 2g
@@ -94,6 +105,7 @@ gg <- gg + geom_density(aes(x=age, group=survived, fill=sex))
 gg <- gg + facet_grid(~sex)
 gg <- gg + labs("AGE", "COUNT")
 gg <- gg + scale_fill_manual( values = c("orange","blue"))
+ggsave("titanic2.png", gg, width = 15, height = 10)
 gg
 ```
 
@@ -108,6 +120,7 @@ library(ggplot2)
 Plot <- ggplot(cows_filtered, aes(x=butterfat, fill=breed)) +
   geom_density(alpha=0.6)+
   labs(x="Butterfat Content", y = "Density")
+ggsave("cowfiltered.png", Plot, width = 15, height = 10)
 Plot
 
 ```
