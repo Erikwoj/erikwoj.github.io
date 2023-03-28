@@ -1,5 +1,5 @@
 ---
-title: "Comparing Apple (AAPL) & S&P 500 (SPY) Using Capital Asset Pricing Model"
+title: "My Project"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 format:
   html:
@@ -15,11 +15,8 @@ library(ggthemes)
 knitr::opts_chunk$set(warning = F, message = F)
 
 ```
-Written by: Erik Wojcik
+Written & Coded by Erik Wojcik
 
-<br>
+# **DANL 310: Comparing Apple (AAPL) & S&P500 (SPY) Using Capial Asset Pricing Model**
 
-## Proposal For Individual Project
-
-
-
+## My Project Proposal
