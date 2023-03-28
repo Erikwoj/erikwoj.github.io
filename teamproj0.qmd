@@ -1,5 +1,5 @@
 ---
-title: "Erik Wojcik: S&P 500's Capital Asset Pricing Model Using Linear Regression "
+title: "Comparing Apple (AAPL) & S&P 500 (SPY) Using Capital Asset Pricing Model"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 format:
   html:
@@ -15,34 +15,11 @@ library(ggthemes)
 knitr::opts_chunk$set(warning = F, message = F)
 
 ```
-
-This is an example of the team project web-page.
+Written by: Erik Wojcik
 
 <br>
 
-## Capital Asset Pricing Model Using Linear Regression
+## Proposal For Individual Project
 
-  **XXX**
 
-```{r eval=TRUE, echo=TRUE, message=F, warning=F}
-cc_belief_county <- read_csv(
-  'https://bcdanl.github.io/data/cc_belief_county.csv'
-)
-```
 
-```{r eval=TRUE, echo=TRUE, fig.asp=.75, message=FALSE, warning=FALSE}
-
-legend_title <- ""
-
-ggplot(data = cc_belief_county) +
-  geom_polygon(aes(long, lat, group = group, 
-                   fill = human2018),
-               color = "grey", size = 0.1) +
-  coord_map("bonne", parameters = 41.6) + 
-  scale_fill_gradient(legend_title, 
-                      low='#0057e7', 
-                      high='#d62d20') +
-  theme_map() + 
-  theme(legend.position="right") +
-  labs(caption = "Data source: Yale Climate Change Communication")
-```

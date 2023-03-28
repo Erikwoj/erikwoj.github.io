@@ -58,7 +58,7 @@
   {
     "objectID": "teamproj0.html",
     "href": "teamproj0.html",
-    "title": "Erik Wojcik: S&P 500’s Capital Asset Pricing Model Using Linear Regression",
+    "title": "Erik Wojcik: Comparing Apple (AAPL) & S&P 500 (SPY) Using Capital Asset Pricing Model",
     "section": "",
     "text": "This is an example of the team project web-page."
   },
@@ -68,5 +68,12 @@
     "title": "Erik Wojcik: S&P 500’s Capital Asset Pricing Model Using Linear Regression",
     "section": "1 Capital Asset Pricing Model Using Linear Regression",
     "text": "1 Capital Asset Pricing Model Using Linear Regression\n  XXX\n\ncc_belief_county <- read_csv(\n  'https://bcdanl.github.io/data/cc_belief_county.csv'\n)\n\n\nlegend_title <- \"\"\n\nggplot(data = cc_belief_county) +\n  geom_polygon(aes(long, lat, group = group, \n                   fill = human2018),\n               color = \"grey\", size = 0.1) +\n  coord_map(\"bonne\", parameters = 41.6) + \n  scale_fill_gradient(legend_title, \n                      low='#0057e7', \n                      high='#d62d20') +\n  theme_map() + \n  theme(legend.position=\"right\") +\n  labs(caption = \"Data source: Yale Climate Change Communication\")"
+  },
+  {
+    "objectID": "teamproj0.html#proposal-for-individual-project",
+    "href": "teamproj0.html#proposal-for-individual-project",
+    "title": "Erik Wojcik: Comparing Apple (AAPL) & S&P 500 (SPY) Using Capital Asset Pricing Model",
+    "section": "1 Proposal For Individual Project",
+    "text": "1 Proposal For Individual Project"
   }
 ]
