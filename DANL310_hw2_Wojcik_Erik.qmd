@@ -12,5 +12,5 @@ knitr::opts_chunk$set(warning = F, message = F,
 
 # **DANL 310: Data Visualization and Presentation Homework Assignment 2**
 
-## Question 1
+## Question 
 ---
