@@ -1,0 +1,16 @@
+---
+title: "Homework 2"
+format: html
+editor: visual
+---
+
+```{r setup, include = F}
+library(tidyverse)
+knitr::opts_chunk$set(warning = F, message = F,
+                      fig.height = 14, fig.width = 7)
+```
+
+# **DANL 310: Data Visualization and Presentation Homework Assignment 2**
+
+## Question 1
+---

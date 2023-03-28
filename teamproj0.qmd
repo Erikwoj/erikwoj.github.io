@@ -1,5 +1,5 @@
 ---
-title: "Erik Wojcik: Capital Asset Pricing Model Using Linear Regression "
+title: "Erik Wojcik: S&P 500's Capital Asset Pricing Model Using Linear Regression "
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 format:
   html:
