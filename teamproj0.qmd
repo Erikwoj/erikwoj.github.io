@@ -20,7 +20,7 @@ knitr::opts_chunk$set(warning = F, message = F)
 
 Proposal for DANL 310 Project by Erik Wojcik, majoring in Business Administration with a minor in Data Analytics.
 
-Apple Inc. is one of the most prominent companies in the world with a market capitalization of over $2 trillion. Apple's stock price is often used as an indicator of the health of the tech industry and the stock market as a whole. The S&P 500 is a benchmark index of 500 of the largest publicly traded companies in the United States. By comparing Apple's performance to the S&P 500 through a Capital Asset Pricing Model (CAPM), I can gain insights into the relative performance of Apple as an investment opportunity and how it has responded to different market conditions over the years. This project is interesting because it provides a deeper understanding of the performance of Apple, which can be useful for investors, financial analysts, and researchers.
+Apple Inc. is one of the most prominent companies in the world with a market capitalization of over \$2 trillion. Apple's stock price is often used as an indicator of the health of the tech industry and the stock market as a whole. The S&P 500 is a benchmark index of 500 of the largest publicly traded companies in the United States. By comparing Apple's performance to the S&P 500 through a Capital Asset Pricing Model (CAPM), I can gain insights into the relative performance of Apple as an investment opportunity and how it has responded to different market conditions over the years. This project is interesting because it provides a deeper understanding of the performance of Apple, which can be useful for investors, financial analysts, and researchers.
 
 My research question is "How does Apple's stock price compare to the S&P 500 using a Capital Asset Pricing Model (CAPM) from 2000-2023?"
 
@@ -33,3 +33,87 @@ The modeling approach I will use is a Capital Asset Pricing Model (CAPM), which 
 My statistical hypothesis is that Apple's stock has a positive beta coefficient, indicating that it is positively correlated with the overall market (as represented by the S&P 500). I also expect to find that Apple's alpha coefficient is statistically significant, indicating that it has provided a higher return than expected based on its level of market risk.
 
 The project will be divided into four main parts: data collection and cleaning, data exploration and visualization, modeling and analysis, and report writing. In the first phase, I will collect and clean the data, removing any missing or erroneous data points. In the second phase, I will explore the data through summary statistics and visualizations to gain insights into the performance of Apple and the S&P 500. In the third phase, I will estimate the beta and alpha coefficients using a linear regression model and interpret the results. Finally, in the fourth phase, I will write a report summarizing my findings, including insights into Apple's performance, the statistical significance of my results, and potential implications for investors.
+
+# Visualization (Not Complete)
+```{r}
+# Load necessary packages
+library(tidyverse)
+
+# Load and clean data
+apple <- read.csv("AAPL.csv") %>%
+  filter(!is.na(Adj.Close)) %>%
+  select(Date, Adj.Close) %>%
+  rename(AAPL = Adj.Close)
+
+spy <- read.csv("SPY.csv") %>%
+  filter(!is.na(Adj.Close)) %>%
+  select(Date, Adj.Close) %>%
+  rename(SPY = Adj.Close)
+
+rf_rate <- read.csv("RF.csv") %>%
+  filter(!is.na(Adj.Close)) %>%
+  select(Date, Adj.Close) %>%
+  rename(RF = Adj.Close)
+
+data <- left_join(left_join(apple, spy), rf_rate)
+
+
+
+
+data <- data %>%
+  mutate(daily_return_aapl = AAPL/lag(AAPL) - 1,
+         daily_return_spy = SPY/lag(SPY) - 1,
+         mutate(daily_return_rf = RF/252))
+
+# Create scatterplot of returns
+ggplot(data, aes(x = daily_return_spy, y = daily_return_aapl)) +
+  geom_point() +
+  labs(x = "S&P 500 Returns", y = "AAPL Returns") +
+  ggtitle("AAPL vs. S&P 500 Returns")
+
+# Calculate beta and alpha coefficients
+model <- lm(daily_return_aapl ~ daily_return_spy + daily_rf_rate, data = data)
+summary(model)
+
+# Interpret results
+beta <- coef(model)["daily_return_spy"]
+alpha <- coef(model)["(Intercept)"]
+
+```
+```{r}
+# load required packages
+library(dplyr)
+library(ggplot2)
+library(lubridate)
+
+# read data from CSV files
+AAPL <- read.csv("AAPL.csv")
+SPY <- read.csv("SPY.csv")
+RF <- read.csv("RF.csv")
+
+# convert date columns to date format
+AAPL$Date <- as.Date(AAPL$Date)
+SPY$Date <- as.Date(SPY$Date)
+RF$Date <- as.Date(RF$Date)
+
+# merge data by date
+data <- AAPL %>%
+  inner_join(SPY, by = "Date") %>%
+  inner_join(RF, by = "Date") %>%
+  mutate(daily_return_AAPL = (Adj.Close.x/lag(Adj.Close.x, 1)) - 1,
+         daily_return_SPY = (Adj.Close.y/lag(Adj.Close.y, 1))-1,
+         daily_rf_rate = RF/252)
+
+
+# plot daily returns of AAPL and SPY over time
+ggplot(data, aes(x = Date)) +
+  geom_line(aes(y = daily_return_AAPL, color = "AAPL")) +
+  geom_line(aes(y = daily_return_SPY, color = "SPY")) +
+  labs(title = "Daily Returns of AAPL and SPY",
+       x = "Date", y = "Daily Return",
+       color = "Security") +
+  scale_color_manual(values = c("red", "blue")) +
+  theme_minimal()
+
+```
+
