@@ -55,8 +55,8 @@ ggplot(hdi_corruption, aes(x = cpi, y = hdi, color = region)) +
               method = "loess",
               formula = y ~ x, color = "blue", size = 1) +
   labs(title = "Human Development Index vs. Corruption Perception Index by Region",
-       x = "Corruption Perception Index,2014 (100 = least corrupt",
-       y = "Human Development Index, 20014 (1.0 = most developed",
+       x = "Corruption Perception Index,2014 (100 = least corrupt)",
+       y = "Human Development Index, 20014 (1.0 = most developed)",
        color = "Region") +
   theme_minimal()+
   xlim(20, 80) +
@@ -67,6 +67,14 @@ ggplot(hdi_corruption, aes(x = cpi, y = hdi, color = region)) +
 
 ```
 
+## Question 2b
+
+```{r}
+
+path <- '/Users/byeong-hakchoe/Google Drive/suny-geneseo/teaching-materials/lecture-data/labor_supply.csv'
+
+cps_labor <- read_csv(path)
+```
 
 
 ---
