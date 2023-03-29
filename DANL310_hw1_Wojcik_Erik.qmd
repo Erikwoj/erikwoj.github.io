@@ -25,7 +25,7 @@ knitr::opts_chunk$set(warning = F, message = F,
 ```{r}
 ncdc_temp <- read_csv(
   'https://bcdanl.github.io/data/ncdc_temp_cleaned.csv')
-
+library(lubridate)
 ggplot(ncdc_temp, aes(x = date, y = temperature, color = location)) +
 
 geom_line(size = 1) + # Adds a layer to the ggplot object with a line plot of the temperature data, with a size of 1.
@@ -48,16 +48,16 @@ theme(legend.title.align = 0.5) # Adjusts the alignment of the legend title to b
 ```{r}
 ncdc_temp <- read_csv(
   'https://bcdanl.github.io/data/ncdc_temp_cleaned.csv')
-
+library('ggplot2')
 p <- ggplot(ncdc_temp, aes(x = month, y = temperature)) 
 
   # add a box plot with grey fill
 p + geom_boxplot(fill = 'grey90') + 
   # add labels for x and y axes
   labs(x = "month",
-       y = "mean temperature (°F)") +
-  # apply a custom theme to the plot
-  theme_clean()
+       y = "mean temperature (°F)") 
+p
+
 ```
 
 ## Question 2c

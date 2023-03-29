@@ -71,12 +71,7 @@ p+theme(aspect.ratio = .5)
 
 ## Question 2b
 
-```{r}
 
-path <- '/Users/byeong-hakchoe/Google Drive/suny-geneseo/teaching-materials/lecture-data/labor_supply.csv'
-
-cps_labor <- read_csv(path)
-```
 
 
 ---

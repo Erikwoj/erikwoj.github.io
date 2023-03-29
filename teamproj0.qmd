@@ -62,8 +62,8 @@ data <- left_join(left_join(apple, spy), rf_rate)
 
 data <- data %>%
   mutate(daily_return_aapl = AAPL/lag(AAPL) - 1,
-         daily_return_spy = SPY/lag(SPY) - 1,
-         mutate(daily_return_rf = RF/252))
+         daily_return_spy = SPY/lag(SPY) - 1)
+         ###mutate(daily_return_rf = RF/252))
 
 # Create scatterplot of returns
 ggplot(data, aes(x = daily_return_spy, y = daily_return_aapl)) +
@@ -72,12 +72,14 @@ ggplot(data, aes(x = daily_return_spy, y = daily_return_aapl)) +
   ggtitle("AAPL vs. S&P 500 Returns")
 
 # Calculate beta and alpha coefficients
-model <- lm(daily_return_aapl ~ daily_return_spy + daily_rf_rate, data = data)
-summary(model)
+
+###model <- lm(daily_return_aapl ~ daily_return_spy + daily_rf_rate, data = data)
+#summary(model)
 
 # Interpret results
-beta <- coef(model)["daily_return_spy"]
-alpha <- coef(model)["(Intercept)"]
+
+###beta <- coef(model)["daily_return_spy"]
+###alpha <- coef(model)["(Intercept)"]
 
 ```
 ```{r}
@@ -97,23 +99,23 @@ SPY$Date <- as.Date(SPY$Date)
 RF$Date <- as.Date(RF$Date)
 
 # merge data by date
-data <- AAPL %>%
-  inner_join(SPY, by = "Date") %>%
-  inner_join(RF, by = "Date") %>%
-  mutate(daily_return_AAPL = (Adj.Close.x/lag(Adj.Close.x, 1)) - 1,
-         daily_return_SPY = (Adj.Close.y/lag(Adj.Close.y, 1))-1,
-         daily_rf_rate = RF/252)
+###data <- AAPL %>%
+  ###inner_join(SPY, by = "Date") %>%
+  ###inner_join(RF, by = "Date") %>%
+  ###mutate(daily_return_AAPL = (Adj.Close.x/lag(Adj.Close.x, 1)) - 1,
+         ###daily_return_SPY = (Adj.Close.y/lag(Adj.Close.y, 1))-1,
+         #daily_rf_rate = RF/252)
 
 
 # plot daily returns of AAPL and SPY over time
-ggplot(data, aes(x = Date)) +
-  geom_line(aes(y = daily_return_AAPL, color = "AAPL")) +
-  geom_line(aes(y = daily_return_SPY, color = "SPY")) +
-  labs(title = "Daily Returns of AAPL and SPY",
-       x = "Date", y = "Daily Return",
-       color = "Security") +
-  scale_color_manual(values = c("red", "blue")) +
-  theme_minimal()
+###ggplot(data, aes(x = Date)) +
+  ###geom_line(aes(y = daily_return_AAPL, color = "AAPL")) +
+  ###geom_line(aes(y = daily_return_SPY, color = "SPY")) +
+  ###labs(title = "Daily Returns of AAPL and SPY",
+      ###x = "Date", y = "Daily Return",
+       ###color = "Security") +
+  ###scale_color_manual(values = c("red", "blue")) +
+  ###theme_minimal()
 
 ```
 
