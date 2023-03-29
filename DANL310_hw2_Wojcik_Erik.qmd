@@ -48,13 +48,13 @@ region_colors <- c("Americas" = "#F9B8AA",
                    "Sub Saharan Africa" = "#E295DD")
 
 # Create the scatter plot
-ggplot(hdi_corruption, aes(x = cpi, y = hdi, color = region)) +
+p<- ggplot(hdi_corruption, aes(x = cpi, y = hdi, color = region)) +
   geom_point(size = 3) +
   scale_color_manual(values = region_colors) +
   geom_smooth(se = FALSE,
               method = "loess",
               formula = y ~ x, color = "blue", size = 1) +
-  labs(title = "Human Development Index vs. Corruption Perception Index by Region",
+  labs(title = "Corruption Perception Index vs. Human Development Index by Region",
        x = "Corruption Perception Index,2014 (100 = least corrupt)",
        y = "Human Development Index, 20014 (1.0 = most developed)",
        color = "Region") +
@@ -64,6 +64,8 @@ ggplot(hdi_corruption, aes(x = cpi, y = hdi, color = region)) +
   geom_text(data = hdi_corruption %>% filter(country %in% c("Argentina", "China", "Egypt", "Greece", "South Africa", "Senegal", "United States", "Germany", "Norway", "Singapore")),
             aes(x = cpi, y = hdi, label = country), 
             size = 5, hjust = -0.2, vjust = -0.2, color = "black")
+
+p+theme(aspect.ratio = .5)
 
 ```
 
