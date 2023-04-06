@@ -16,7 +16,7 @@ knitr::opts_chunk$set(warning = F, message = F,
 
 Proposal for DANL 310 Project by Erik Wojcik, majoring in Business Administration with a minor in Data Analytics.
 
-Apple Inc. is one of the most prominent companies in the world with a market capitalization of over $2 trillion. Apple's stock price is often used as an indicator of the health of the tech industry and the stock market as a whole. The S&P 500 is a benchmark index of 500 of the largest publicly traded companies in the United States. By comparing Apple's performance to the S&P 500 through a Capital Asset Pricing Model (CAPM), I can gain insights into the relative performance of Apple as an investment opportunity and how it has responded to different market conditions over the years. This project is interesting because it provides a deeper understanding of the performance of Apple, which can be useful for investors, financial analysts, and researchers.
+Apple Inc. is one of the most prominent companies in the world with a market capitalization of over \$2 trillion. Apple's stock price is often used as an indicator of the health of the tech industry and the stock market as a whole. The S&P 500 is a benchmark index of 500 of the largest publicly traded companies in the United States. By comparing Apple's performance to the S&P 500 through a Capital Asset Pricing Model (CAPM), I can gain insights into the relative performance of Apple as an investment opportunity and how it has responded to different market conditions over the years. This project is interesting because it provides a deeper understanding of the performance of Apple, which can be useful for investors, financial analysts, and researchers.
 
 My research question is "How does Apple's stock price compare to the S&P 500 using a Capital Asset Pricing Model (CAPM) from 2000-2023?"
 
@@ -31,7 +31,6 @@ My statistical hypothesis is that Apple's stock has a positive beta coefficient,
 The project will be divided into four main parts: data collection and cleaning, data exploration and visualization, modeling and analysis, and report writing. In the first phase, I will collect and clean the data, removing any missing or erroneous data points. In the second phase, I will explore the data through summary statistics and visualizations to gain insights into the performance of Apple and the S&P 500. In the third phase, I will estimate the beta and alpha coefficients using a linear regression model and interpret the results. Finally, in the fourth phase, I will write a report summarizing my findings, including insights into Apple's performance, the statistical significance of my results, and potential implications for investors.
 
 ## Question 2a
-
 
 ```{r}
 library(ggplot2)
@@ -63,15 +62,99 @@ p<- ggplot(hdi_corruption, aes(x = cpi, y = hdi, color = region)) +
   ylim(0.4, 1.0) +
   geom_text(data = hdi_corruption %>% filter(country %in% c("Argentina", "China", "Egypt", "Greece", "South Africa", "Senegal", "United States", "Germany", "Norway", "Singapore")),
             aes(x = cpi, y = hdi, label = country), 
-            size = 5, hjust = -0.2, vjust = -0.2, color = "black")
+            size = 2, hjust = -0.2, vjust = -0.2, color = "black")
 
-p+theme(aspect.ratio = .5)
+p+theme(aspect.ratio = 1)
 
 ```
 
 ## Question 2b
 
+```{r}
 
 
 
----
+library(tidyverse)
+
+library(dplyr)
+library(ggplot2)
+
+labor_supply <- read.csv("labor_supply.csv")
+
+labor_subset <- labor_supply %>% 
+  select(YEAR, SEX, NCHLT5, LABFORCE, ASECWT)
+
+labor_subset$has_children <- ifelse(labor_subset$NCHLT5 == 0, "No", "Yes")
+
+labor_subset <- labor_subset %>% 
+  filter(LABFORCE != 0)
+
+pop_by_year_sex_children <- labor_subset %>% 
+  group_by(YEAR, SEX, has_children) %>% 
+  summarize(labor_pop = sum(ASECWT[LABFORCE == 2]), civilian_pop = sum(ASECWT))
+
+lfp_by_year_sex_children <- pop_by_year_sex_children %>% 
+  mutate(lfp_rate = labor_pop / civilian_pop)
+
+lfp_by_year_sex_children <- lfp_by_year_sex_children %>% 
+  filter(!is.na(lfp_rate))
+
+lfp_by_year_sex_children$SEX <- factor(lfp_by_year_sex_children$SEX, labels = c("Male", "Female"))
+
+plot_no_children <- ggplot(data = lfp_by_year_sex_children %>% filter(has_children == "No"),
+                           aes(x = YEAR, y = lfp_rate, color = SEX, group = SEX)) +
+  geom_line() +
+  labs(title = "Labor force participation rate by gender for households with no children under the age of 5",
+       x = "Year",
+       y = "Labor force participation rate")
+
+plot_with_children <- ggplot(data = lfp_by_year_sex_children %>% filter(has_children == "Yes"),
+                             aes(x = YEAR, y = lfp_rate, color = SEX, group = SEX)) +
+  geom_line() +
+  labs(title = "Labor force participation rate by gender for households with at least one child under the age of 5",
+       x = "Year",
+       y = "Labor force participation rate")
+
+library(gridExtra)
+grid.arrange(plot_no_children, plot_with_children, ncol = 2)
+
+
+
+
+
+```
+
+# Question 2c
+```{r}
+library(ggcorrplot) # to create correlation heatmaps using ggcorrplot()
+
+beer_mkt <- read_csv('https://bcdanl.github.io/data/beer_markets.csv')
+
+View(beer_mkt)
+
+
+beer_dummies <- beer_mkt %>% select(-hh, -market) 
+reg <- lm(data = beer_dummies,
+          beer_floz ~ .)
+beer_dummies <-  as.data.frame(model.matrix(reg))[, -1]
+beer_dummies <- cbind(beer_mkt$beer_floz ,beer_dummies)
+beer_dummies <- beer_dummies %>% 
+  rename(beer_floz = `beer_mkt$beer_floz`)
+
+correlations <- cor(beer_dummies)
+
+vars_to_plot <- names(sort(colMeans(abs(correlations)), decreasing = TRUE)[1:14])
+
+cor_to_plot <- correlations[vars_to_plot, vars_to_plot]
+
+ggcorrplot(cor_to_plot, hc.order = TRUE, 
+           type = "lower", 
+           lab = TRUE, 
+           lab_size = 2, 
+           ggtheme = ggplot2::theme_bw())
+
+
+```
+
+
+------------------------------------------------------------------------
