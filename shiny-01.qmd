@@ -2,7 +2,6 @@
 title: "Old Faithful Geyser Data"
 ---
 
-
 ````{=html}
 <style>iframe{height: 1200px; width: 800px}</style>
 <iframe height="100%" width="100%" frameborder="no"
