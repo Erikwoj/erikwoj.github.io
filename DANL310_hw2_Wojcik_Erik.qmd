@@ -12,6 +12,8 @@ knitr::opts_chunk$set(warning = F, message = F,
 
 # **DANL 310: Data Visualization and Presentation Homework Assignment 2**
 
+## My web address is erikwoj.github.io
+
 ## Question 1
 
 Proposal for DANL 310 Project by Erik Wojcik, majoring in Business Administration with a minor in Data Analytics.
@@ -124,7 +126,8 @@ grid.arrange(plot_no_children, plot_with_children, ncol = 2)
 
 ```
 
-# Question 2c
+## Question 2c
+
 ```{r}
 library(ggcorrplot) # to create correlation heatmaps using ggcorrplot()
 
@@ -155,6 +158,5 @@ ggcorrplot(cor_to_plot, hc.order = TRUE,
 
 
 ```
-
 
 ------------------------------------------------------------------------
