@@ -1,0 +1,13 @@
+name: WojApp
+title: WojApp
+username:
+account: erikwoj
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 8950452
+bundleId: 7134757
+url: https://erikwoj.shinyapps.io/WojApp/
+when: 1682449367.12126
+lastSyncTime: 1682449367.12129
+asMultiple: FALSE
+asStatic: FALSE

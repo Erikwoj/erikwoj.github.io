@@ -9,6 +9,8 @@ website:
   navbar:
     pinned: true
     left:
+      - text: App
+      - href: shiny-01.qmd
       - text: Project
         href: teamproj0.qmd
       - text: Homework

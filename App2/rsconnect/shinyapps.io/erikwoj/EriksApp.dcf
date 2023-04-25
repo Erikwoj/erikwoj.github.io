@@ -1,0 +1,13 @@
+name: EriksApp
+title: EriksApp
+username:
+account: erikwoj
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 8950510
+bundleId: 7134781
+url: https://erikwoj.shinyapps.io/EriksApp/
+when: 1682449558.53284
+lastSyncTime: 1682449558.53288
+asMultiple: FALSE
+asStatic: FALSE
