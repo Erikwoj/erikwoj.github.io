@@ -4,41 +4,7 @@ date: "2023-04-06"
 ---
 
 
-# Honor Pledges 
-
-I solemnly swear that I will not cheat or engage in any form of academic dishonesty during this exam. 
-
-<br>
-
-I will not communicate with other students or use unauthorized materials. 
-
-<br>
-
-I will uphold the integrity of this exam and demonstrate my own knowledge and abilities.
-
-<br>
-
-By taking this pledge, I acknowledge that academic dishonesty undermines the academic process and is a violation of the trust placed in me as a student. 
-
-<br>
-
-I accept the consequences of any violation of this promise.
-
-<br>
-
-Student's Signature: 
-
-Erik Wojcik
-
-## Exam Questions
-
-The midterm exam questions are provided in the following webpage:
-- [https://bcdanl.github.io/DANL310-midterm-q.html](https://bcdanl.github.io/DANL310-midterm-q.html).
-
-
-## Loading R packages
-
-```{r, warning=F, message=F}
+```{r}
 library(knitr)
 library(tidyverse)
 library(lubridate)
@@ -46,51 +12,12 @@ library(socviz)
 library(ggthemes)
 library(hrbrthemes)
 library(gapminder)
+library(stargazer)
 ```
-
-- `hrbrthemes::theme_ipsum()` or `theme_minimal()` can be used for your ggplot theme.
-
-
-```{r setup, include = FALSE}
-# library(tidyverse)
-# library(knitr)
-# library(kableExtra)
-# library(ggthemes)
-# library(ggtech)
-# library(ggthemr)
-# library(ggthemes)
-# library(hrbrthemes)
-# library(hexbin)
-# library(ggforce)
-# library(skimr)
-
-knitr::opts_chunk$set(fig.width=8, fig.height=5,
-                      echo = T, eval = T, warning = F, message = F) 
-```
-
-<br>
-
-# Question 1
-
-The following data is for Question 1:
 
 ```{r}
+
 gapminder <- gapminder
-```
-
-```{r, result = 'asis', echo = F}
-rmarkdown::paged_table(gapminder) 
-View(gapminder)
-```
-
-<br>
-
-Q1a. Replicate the given ggplot.
-
-  - Use the color `#0072B2` for dots.
-  
-
-```{r, fig.height= , fig.width= }
 # Set the data and filter to include only observations from 2007 and exclude Oceania
 ggplot(data = filter(gapminder, year == 2007,
                      continent != 'Oceania'),
@@ -133,38 +60,11 @@ ggplot(data = filter(gapminder, year == 2007,
     strip.text = element_text(size = rel(1.25),
                               face = 'bold')
   )
-
 ```
-
-Q1b. Make a simple comment on the visualization result.
-
-# Europe and Oceania seem to have a higher life expectancy in 2007
-
-# Question 2
-
-The following data is for Question 2:
-
 ```{r}
 n_tweets_long <- read_csv(
   'https://bcdanl.github.io/data/n_tweets_long.csv')
-```
 
-```{r, result = 'asis', echo = F}
-rmarkdown::paged_table(n_tweets_long) 
-```
-
-<br>
-
-Q2a. Replicate the given ggplot.
-
-  - The following describes the `type` values:
-    - `n_ot_us`: Number of US tweets 
-    - `n_ot_wrld`: Number of worldwide tweets 
-    - `n_rt_lk_us`: Number of US retweets & likes
-    - `n_rt_lk_wrld`: Number of worldwide retweets & likes 
-  - Use the colors, `maroon` and `#428bca` properly.
-  
-```{r, fig.height = , fig.width=}
 # The following line filters the rows of the n_tweets_long data frame that have a value of "n_ot_us" or "n_ot_wrld" in the "type" column. 
 # It then creates a new column called "type" that replaces "n_ot_us" with "US" and "n_ot_wrld" with "Worldwide".
 n_tweets_long1 <- n_tweets_long %>% 
@@ -244,19 +144,8 @@ p2 <- ggplot(mapping = aes(x = year, y = n)) +  # Create a ggplot object with th
 )
 
 
-p2a
-
+p2
 ```
-
-Q2b. Make a simple comment on the visualization result.
-
-# The number of tweets involving climate change has increased worldwide as well in the United States between 2012-2017. This can also be said with the retweets and likes.
-
-<br><br>
-
-# Question 3
-
-The following data set is for Question 3:
 
 ```{r}
 nyc_dog_license <- read_csv(
@@ -265,32 +154,12 @@ nyc_zips_coord <- read_csv(
   'https://bcdanl.github.io/data/nyc_zips_coord.csv')
 nyc_zips_df <- read_csv(
   'https://bcdanl.github.io/data/nyc_zips_df.csv')
-```
-
-```{r, result = 'asis', echo = F}
-rmarkdown::paged_table(nyc_dog_license) 
-```
-
-```{r, result = 'asis', echo = F}
-rmarkdown::paged_table(nyc_zips_coord) 
-```
-
-```{r, result = 'asis', echo = F}
-rmarkdown::paged_table(nyc_zips_df) 
-```
-
-<br>
-
-Q3a. Replicate the given ggplot.
-
-  - You should calculate the proportion of `Pit Bull (or Mix)` for each zip code.
-  - You should join data.frames properly.
-  - Choose the color palette from the `viridis` scales [https://ggplot2.tidyverse.org/reference/scale_viridis.html](https://ggplot2.tidyverse.org/reference/scale_viridis.html).
-  - Use `coord_map(projection = "albers", lat0 = 39, lat1 = 45)`.
-
-
-
-```{r, fig.width= , fig.height= }
+nyc_dog_license <- read_csv(
+  'https://bcdanl.github.io/data/nyc_dog_license.csv')
+nyc_zips_coord <- read_csv(
+  'https://bcdanl.github.io/data/nyc_zips_coord.csv')
+nyc_zips_df <- read_csv(
+  'https://bcdanl.github.io/data/nyc_zips_df.csv')
 
 # Joining two data frames using a common variable
 nyc_zips_df <- nyc_zips_df %>% 
@@ -363,64 +232,65 @@ filter(fb_map, breed_rc %in% c('Pit Bull (or Mix)')) %>%
   guides(fill = guide_legend(title.position = "top",
                              label.position = "bottom",
                              keywidth = 1, nrow = 1))  # set the legend position
-
-
-
-
 ```
 
-
-Q3b. Which `zip_code` does have the highest proportion of `Pit Bull (or Mix)`?
-
-
-<br><br>
-
-# Question 4 
-
-The following data is for Question 4:
+```{r}
+q3b <- fb_map %>% 
+  select(zip_code, breed_rc, pct) %>% 
+  filter(breed_rc == 'Pit Bull (or Mix)') %>% 
+  arrange(-pct) %>% 
+  distinct()
+```
 
 ```{r}
 stock <- read_csv('https://bcdanl.github.io/data/stocks2013_2023.csv')
+# Create a new variable year extracted from the Date column
+stock <- stock %>% 
+  mutate(year = year(Date))
+
+p <- ggplot(data = filter(stock, year >= 2019, year <= 2022 ) , 
+            aes(x = log(Volume), y = log(Close), color = company))
+
+p + 
+  geom_point(alpha = .05) +
+  geom_smooth(method = lm, color = 'black') +
+  facet_grid( company ~ year, scales = 'free' ) +
+  labs(x = 'Volume (in log)',
+       y = 'Close (in log)') +
+  guides(color = "none")
 ```
 
-```{r, result = 'asis', echo = F, message = F, warning = F}
-rmarkdown::paged_table(stock) 
+```{r}
+# Create a new variable year extracted from the Date column
+stock <- stock %>% 
+  mutate(year = year(Date))
+
+p <- ggplot(data = filter(stock, year >= 2019, year <= 2022 ) , 
+            aes(x = log(Volume), y = log(Close), color = company))
+
+p + 
+  geom_point(alpha = .05) +
+  geom_smooth(method = lm, color = 'black') +
+  facet_grid( company ~ year ) +
+  labs(x = 'Volume (in log)',
+       y = 'Close (in log)') +
+  guides(color = "none")
 ```
 
-<br>
+```{r}
 
-Q4a. Replicate the given ggplot.
+library(broom)
+reg <- lm(log(Volume) ~ log(Close) * company,
+          data = filter(stock, year == 2020))
+reg_sum <- tidy(reg, conf.int = T) %>% 
+  filter(str_detect(term, "log"), term != "log(Close)")
 
-```{r, fig.height=  , fig.width= }
-
-View(stock)
-
-a<-ggplot(data = stock, aes(company ='AMZN' , y = 'Open')) +
-  geom_line(x= 'Volume', y='Close')
-b<-ggplot(data = stock, aes(company ='AAPL' , y = 'Open')) +
-  geom_line(x= 'Volume', y='Close')
-c<-ggplot(data = stock, aes(company ='GOOG' , y = 'Open')) +
-  geom_line(x= 'Volume', y='Close')
-d<-ggplot(data = stock, aes(company ='META' , y = 'Open')) +
-  geom_line(x= 'Volume', y='Close')
-e<-ggplot(data = stock, aes(company ='MSFT' , y = 'Open')) +
-  geom_line(x= 'Volume', y='Close')
-f<-ggplot(data = stock, aes(company ='NFLX' , y = 'Open')) +
-  geom_line(x= 'Volume', y='Close')
-g<-ggplot(data = stock, aes(company ='TSLA' , y = 'Open')) +
-  geom_line(x= 'Volume', y='Close')
-
-library(gridExtra)
-grid.arrange(a,b,c,d,e,f,g, ncol = 4)
-
-
-# Wish I had more time on this one 
-
+ggplot(reg_sum,
+       aes(x = estimate, y = fct_reorder(term, estimate),
+           xmin = conf.low, 
+           xmax = conf.high)) +
+  geom_point() +
+  geom_pointrange() +
+  geom_vline(xintercept = 0, color = 'red', lty = 2)
 ```
-
-
-Q4b. In 2020, which company's stock trading `Volume` does seem to be the most insensitive to a change in `Close` price?
-
-# The stock to be the least sensitive in 2020 is NFLX with only losing about .5.
-# Teslas stock seems to be the most to change in its close price from going to ≈ 5 to ≈ 3.5.
 
