@@ -1,7 +1,6 @@
 ---
 title: "Homework 2"
 format: html
-editor: visual
 ---
 
 ```{r setup, include = F}
