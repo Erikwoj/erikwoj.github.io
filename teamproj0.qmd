@@ -35,6 +35,7 @@ My statistical hypothesis is that Apple's stock has a positive beta coefficient,
 The project will be divided into four main parts: data collection and cleaning, data exploration and visualization, modeling and analysis, and report writing. In the first phase, I will collect and clean the data, removing any missing or erroneous data points. In the second phase, I will explore the data through summary statistics and visualizations to gain insights into the performance of Apple and the S&P 500. In the third phase, I will estimate the beta and alpha coefficients using a linear regression model and interpret the results. Finally, in the fourth phase, I will write a report summarizing my findings, including insights into Apple's performance, the statistical significance of my results, and potential implications for investors.
 
 # Visualization (Not Complete)
+
 ```{r}
 # Load necessary packages
 library(tidyverse)
@@ -82,6 +83,7 @@ ggplot(data, aes(x = daily_return_spy, y = daily_return_aapl)) +
 ###alpha <- coef(model)["(Intercept)"]
 
 ```
+
 ```{r}
 # load required packages
 library(dplyr)
@@ -118,4 +120,3 @@ RF$Date <- as.Date(RF$Date)
   ###theme_minimal()
 
 ```
-

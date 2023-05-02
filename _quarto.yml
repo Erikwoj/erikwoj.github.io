@@ -9,14 +9,10 @@ website:
   navbar:
     pinned: true
     left:
-      - text: App
-      - href: shiny-01.qmd
-      - text: Project / Midterm
-        menu: 
-          - text: Team Project
-            href: teamproj0.qmd
-          - text: Midterm
-            href: DANL310_midterm_Wojcik_Erik.qmd
+      - text: Midterm
+        href: DANL310_midterm_Wojcik_Erik.qmd
+      - text: Project 
+        href: teamproj0.qmd
       - text: Homework
         menu:
           - text: Homework 1

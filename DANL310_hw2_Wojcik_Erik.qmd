@@ -71,59 +71,7 @@ p+theme(aspect.ratio = 1)
 
 ## Question 2b
 
-```{r}
-
-
-
-library(tidyverse)
-
-library(dplyr)
-library(ggplot2)
-
-labor_supply <- read.csv("labor_supply.csv")
-
-labor_subset <- labor_supply %>% 
-  select(YEAR, SEX, NCHLT5, LABFORCE, ASECWT)
-
-labor_subset$has_children <- ifelse(labor_subset$NCHLT5 == 0, "No", "Yes")
-
-labor_subset <- labor_subset %>% 
-  filter(LABFORCE != 0)
-
-pop_by_year_sex_children <- labor_subset %>% 
-  group_by(YEAR, SEX, has_children) %>% 
-  summarize(labor_pop = sum(ASECWT[LABFORCE == 2]), civilian_pop = sum(ASECWT))
-
-lfp_by_year_sex_children <- pop_by_year_sex_children %>% 
-  mutate(lfp_rate = labor_pop / civilian_pop)
-
-lfp_by_year_sex_children <- lfp_by_year_sex_children %>% 
-  filter(!is.na(lfp_rate))
-
-lfp_by_year_sex_children$SEX <- factor(lfp_by_year_sex_children$SEX, labels = c("Male", "Female"))
-
-plot_no_children <- ggplot(data = lfp_by_year_sex_children %>% filter(has_children == "No"),
-                           aes(x = YEAR, y = lfp_rate, color = SEX, group = SEX)) +
-  geom_line() +
-  labs(title = "Labor force participation rate by gender for households with no children under the age of 5",
-       x = "Year",
-       y = "Labor force participation rate")
-
-plot_with_children <- ggplot(data = lfp_by_year_sex_children %>% filter(has_children == "Yes"),
-                             aes(x = YEAR, y = lfp_rate, color = SEX, group = SEX)) +
-  geom_line() +
-  labs(title = "Labor force participation rate by gender for households with at least one child under the age of 5",
-       x = "Year",
-       y = "Labor force participation rate")
-
-library(gridExtra)
-grid.arrange(plot_no_children, plot_with_children, ncol = 2)
-
-
-
-
-
-```
+# The file labor_supply was too large to be able to render
 
 ## Question 2c
 
