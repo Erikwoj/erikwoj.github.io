@@ -1,5 +1,5 @@
 ---
-title: "Comparing Apple (AAPL) & S&P 500 (SPY) Using Capital Asset Pricing Model"
+title: "Comparing Apple (AAPL) Stock Performance to the S&P 500 (SPY) Using Capital Asset Pricing Model"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 format:
   html:
@@ -38,7 +38,7 @@ The equation is:
 
 Return on Investment = Risk Free Rate + β(Return on Market - Risk Free Rate)
 
-# Apples Historical Stock Price (Context)
+# Apples Historical Stock Price 
 
 ```{r}
 #APPLES HISTORIC STOCK PRICES
@@ -53,7 +53,7 @@ plot(aapl$AAPL.Close, type="l", xlab="Date", ylab="Closing Price",
 
 ```
 
-# S&P 500'S Historical Stock Price (Context)
+# S&P 500'S Historical Stock Price 
 
 ```{r}
 #S&P500 HISTORIC STOCK PRICES
@@ -93,8 +93,9 @@ ggplot() +
        x = "Date",
        y = "Daily Return",
        color = "Index") +
-  scale_color_manual(values = c("blue", "red"))
-theme_bw()
+  scale_color_manual(values = c("blue", "red"))+
+  theme_economist()
+
 ```
 
 A positive daily return on the X-axis indicates a gain in value for that day, while a negative daily return indicates a loss. The Y-axis shows the daily returns over the entire period from 2000-2023.
@@ -111,7 +112,7 @@ ggplot() +
   labs(title = "Excess Returns for AAPL vs S&P 500",
        x = "Excess Return for S&P 500",
        y = "Excess Return for AAPL") +
-  theme_bw()
+  theme_economist()
 ```
 
 The x-axis represents the excess return for AAPL, while the y-axis represents the excess return for the S&P 500. The graph shows the relationship between the excess returns for Apple and the broader market as represented by the S&P 500.
@@ -132,19 +133,12 @@ stock_prices <- c("AAPL") %>%
     tq_get(get  = "stock.prices",
            from = today() - years(23)) %>%
     group_by(symbol)
-
-stock_prices
-
 Ra <- stock_prices %>%
     tq_transmute(select     = adjusted, 
                  mutate_fun = periodReturn, 
                  period     = "yearly", 
                  col_rename = "Ra")
-Ra
-summary(Ra)
 #Average yearly return is .02614
-
-
 Rb <- "^GSPC" %>%
     tq_get(get  = "stock.prices",
            from = today() - years(23)) %>%
@@ -152,13 +146,8 @@ Rb <- "^GSPC" %>%
                  mutate_fun = periodReturn, 
                  period     = "yearly", 
                  col_rename = "Rb")
-summary(Rb)
 #Average yearly return is .004846
-
-
 RaRb <- left_join(Ra, Rb, by = c("date" = "date"))
-RaRb
-
 RaRb_capm <- RaRb %>%
     tq_performance(Ra = Ra, 
                    Rb = Rb, 
@@ -179,3 +168,6 @@ This finding can be interpreted as a positive signal for investors, indicating t
 A beta coefficient measures the sensitivity of a stock's returns to changes in the overall market. A beta of 1 indicates that the stock moves in line with the market, while a beta greater than 1 indicates that the stock is more volatile than the market, and a beta less than 1 indicates that the stock is less volatile than the market. In the case of Apple, a beta coefficient of 1.8695 indicates that its stock price is more volatile than the overall market, as represented by the S&P 500 index. This means that changes in the S&P 500 are likely to have a larger impact on Apple's stock price compared to other stocks with lower beta coefficients.
 
 Investors who are risk-averse may view a high beta stock like Apple as more risky than the market average, and may require a higher expected return to compensate for this additional risk. On the other hand, investors who are comfortable with taking on more risk may see Apple as an opportunity to potentially earn higher returns than the market, although this comes with the risk of larger losses during downturns.
+
+
+
