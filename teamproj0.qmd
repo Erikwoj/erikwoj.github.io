@@ -16,107 +16,166 @@ knitr::opts_chunk$set(warning = F, message = F)
 
 ```
 
-# Project Proposal
+# Introduction
 
-Proposal for DANL 310 Project by Erik Wojcik, majoring in Business Administration with a minor in Data Analytics.
-
-Apple Inc. is one of the most prominent companies in the world with a market capitalization of over \$2 trillion. Apple's stock price is often used as an indicator of the health of the tech industry and the stock market as a whole. The S&P 500 is a benchmark index of 500 of the largest publicly traded companies in the United States. By comparing Apple's performance to the S&P 500 through a Capital Asset Pricing Model (CAPM), I can gain insights into the relative performance of Apple as an investment opportunity and how it has responded to different market conditions over the years. This project is interesting because it provides a deeper understanding of the performance of Apple, which can be useful for investors, financial analysts, and researchers.
+Apple is one of the most prominent companies in the world with a market capitalization of over \$2 trillion. Apple's stock price is often used as an indicator of the health of the tech industry and the stock market as a whole. The S&P 500 is a benchmark index of 500 of the largest publicly traded companies in the United States. By comparing Apple's performance to the S&P 500 through a Capital Asset Pricing Model (CAPM), I can gain insights into the relative performance of Apple as an investment opportunity and how it has responded to different market conditions over the years. This project is interesting because it provides a deeper understanding of the performance of Apple, which can be useful for investors, financial analysts, and researchers.
 
 My research question is "How does Apple's stock price compare to the S&P 500 using a Capital Asset Pricing Model (CAPM) from 2000-2023?"
 
-The data for this project will be obtained from a reputable financial data provider, such as Yahoo Finance or Google Finance. I will collect daily closing prices for Apple's stock (AAPL) and the S&P 500 Index (SPY) from January 1, 2000, to March 28, 2023. This will provide a total of 6,023 daily observations for each security. I will also collect data on the risk-free rate of return (such as the yield on 10-year U.S. Treasury bonds) for each day in the sample period.
+I am conducting a research project to analyze the performance of Apple's stock compared to the S&P 500 using a Capital Asset Pricing Model (CAPM) from 2000-2023. The purpose of this project is to gain insights into the relative performance of Apple as an investment opportunity and how it has responded to different market conditions over the years. This project is important for me as an investor, as it provides a deeper understanding of the performance of Apple and its potential as a long-term investment.
 
-Summary statistics and visualizations of the data will be used to gain insights into the performance of Apple's stock and the S&P 500. I will examine the mean, standard deviation, minimum, maximum, and skewness of daily returns for each security. I will also create a scatter plot of Apple's returns against the returns of the S&P 500 to visually compare their performance.
+The project will be divided into four main parts: the conceptual framework, data exploration and visualization, modeling and analysis, and report writing. In the first phase, I will collect data from the quantmod package as well as importing from tidyquant. In the second phase, I will explore the data through summary statistics, historical context, and visualizations to gain insights into the performance of Apple and the S&P 500. In the third phase, I will estimate the beta and alpha coefficients using a linear regression model and interpret the results. Finally, in the fourth phase, I will write a report summarizing my findings, including insights into Apple's performance, the statistical significance of my results, and potential implications for me as an investor.
 
-The modeling approach I will use is a Capital Asset Pricing Model (CAPM), which is widely used in finance to estimate the expected return on an investment. I will estimate the beta coefficient for Apple's stock using a linear regression model with the S&P 500 Index returns as the independent variable and Apple's returns as the dependent variable. I will also estimate the alpha coefficient, which measures the excess return of Apple's stock compared to the expected return based on its beta coefficient and the risk-free rate.
+# Conceptual Framework
 
-My statistical hypothesis is that Apple's stock has a positive beta coefficient, indicating that it is positively correlated with the overall market (as represented by the S&P 500). I also expect to find that Apple's alpha coefficient is statistically significant, indicating that it has provided a higher return than expected based on its level of market risk.
+The Capital Asset Pricing Model (CAPM) is a theoretical framework that seeks to explain the relationship between the expected return on an asset and the risk-free rate of return, the expected market return, and the asset's beta coefficient. It is a widely-used framework in finance that provides insights into how investors should price risky assets.
 
-The project will be divided into four main parts: data collection and cleaning, data exploration and visualization, modeling and analysis, and report writing. In the first phase, I will collect and clean the data, removing any missing or erroneous data points. In the second phase, I will explore the data through summary statistics and visualizations to gain insights into the performance of Apple and the S&P 500. In the third phase, I will estimate the beta and alpha coefficients using a linear regression model and interpret the results. Finally, in the fourth phase, I will write a report summarizing my findings, including insights into Apple's performance, the statistical significance of my results, and potential implications for investors.
+The variables in the CAPM model are:
 
-# Visualization (Not Complete)
+Rf: The risk-free rate of return, which represents the theoretical return an investor would receive if they invested in a risk-free asset, such as a US Treasury bond. Rm: The expected return of the market, which represents the average return of all the assets in the market. β: The beta coefficient of the asset, which measures the volatility of the asset relative to the market. R_i: The expected return on the asset, which represents the return an investor would expect to receive from investing in the asset.
+
+The equation is:
+
+Return on Investment = Risk Free Rate + β(Return on Market - Risk Free Rate)
+
+# Apples Historical Stock Price (Context)
 
 ```{r}
-# Load necessary packages
+#APPLES HISTORIC STOCK PRICES
+library(quantmod)
+
+# Get Apple's stock price data from Yahoo Finance
+aapl <- getSymbols("AAPL", from="2000-01-01", to="2023-05-08", auto.assign=FALSE)
+
+# Plot the closing price of Apple's stock
+plot(aapl$AAPL.Close, type="l", xlab="Date", ylab="Closing Price",
+     main="Apple Stock Price from 2000 to 2023")
+
+```
+
+# S&P 500'S Historical Stock Price (Context)
+
+```{r}
+#S&P500 HISTORIC STOCK PRICES
+library(quantmod)
+
+# Get S&P500's stock price data from Yahoo Finance
+spy <- getSymbols("SPY", from="2000-01-01", to="2023-05-08", auto.assign=FALSE)
+
+# Plot the closing price of S&P500's stock
+plot(spy$SPY.Close, type="l", xlab="Date", ylab="Closing Price",
+     main="SPY Stock Price from 2000 to 2023")
+```
+
+# Calculate Daily Returns for Apple and S&P 500
+
+```{r}
+# Calculate the daily returns for Apple stock and the S&P 500 index
+aapl_returns <- dailyReturn(aapl)
+spy_returns <- dailyReturn(spy)
+
+# Set the risk-free rate (10-year Treasury bond yield)
+risk_free_rate <- 0.0263/252
+
+# Calculate the excess returns for Apple stock and the S&P 500 index
+aapl_excess_returns <- aapl_returns - risk_free_rate
+spy_excess_returns <- spy_returns - risk_free_rate
+```
+
+# Visualization of Daily Returns
+
+```{r}
+# Visualize the daily returns for Apple stock and the S&P 500 index
+ggplot() +
+  geom_line(aes(x = index(aapl_returns), y = aapl_returns, color = "AAPL")) +
+  geom_line(aes(x = index(spy_returns), y = spy_returns, color = "S&P 500")) +
+  labs(title = "Daily Returns for AAPL and S&P 500",
+       x = "Date",
+       y = "Daily Return",
+       color = "Index") +
+  scale_color_manual(values = c("blue", "red"))
+theme_bw()
+```
+
+A positive daily return on the X-axis indicates a gain in value for that day, while a negative daily return indicates a loss. The Y-axis shows the daily returns over the entire period from 2000-2023.
+
+By analyzing the line graph, you can see that there have been periods of high volatility where daily returns have been more erratic, and other periods of relative stability where returns have been more consistent. You can also observe any patterns or trends in the daily returns over time, such as whether there are more periods of gains or losses, and whether the returns for AAPL and S&P 500 move together or independently of each other.
+
+# Visualization the Excess Returns
+
+```{r}
+# Visualize the excess returns for Apple stock and the S&P 500 index
+ggplot() +
+  geom_point(aes(x = spy_excess_returns, y = aapl_excess_returns)) +
+  geom_smooth(aes(x = spy_excess_returns, y = aapl_excess_returns)) +
+  labs(title = "Excess Returns for AAPL vs S&P 500",
+       x = "Excess Return for S&P 500",
+       y = "Excess Return for AAPL") +
+  theme_bw()
+```
+
+The x-axis represents the excess return for AAPL, while the y-axis represents the excess return for the S&P 500. The graph shows the relationship between the excess returns for Apple and the broader market as represented by the S&P 500.
+
+Tt suggests that Apple has outperformed the S&P 500, and for every positive excess return for the S&P 500, Apple has achieved a higher excess return.
+
+Additionally, the distance of each point from the origin represents the magnitude of the excess returns. If the point is closer to the origin, it suggests a lower excess return, while a point farther from the origin indicates a higher excess return. In this case the points are farther away from the origin.
+
+# Capital Asset Price Model for Apple from 2000-2023
+
+```{r}
+
+library(tidyquant)
 library(tidyverse)
 
-# Load and clean data
-apple <- read.csv("AAPL.csv") %>%
-  filter(!is.na(Adj.Close)) %>%
-  select(Date, Adj.Close) %>%
-  rename(AAPL = Adj.Close)
+# Import stock prices
+stock_prices <- c("AAPL") %>%
+    tq_get(get  = "stock.prices",
+           from = today() - years(23)) %>%
+    group_by(symbol)
 
-spy <- read.csv("SPY.csv") %>%
-  filter(!is.na(Adj.Close)) %>%
-  select(Date, Adj.Close) %>%
-  rename(SPY = Adj.Close)
+stock_prices
 
-rf_rate <- read.csv("RF.csv") %>%
-  filter(!is.na(Adj.Close)) %>%
-  select(Date, Adj.Close) %>%
-  rename(RF = Adj.Close)
-
-data <- left_join(left_join(apple, spy), rf_rate)
-
+Ra <- stock_prices %>%
+    tq_transmute(select     = adjusted, 
+                 mutate_fun = periodReturn, 
+                 period     = "yearly", 
+                 col_rename = "Ra")
+Ra
+summary(Ra)
+#Average yearly return is .02614
 
 
+Rb <- "^GSPC" %>%
+    tq_get(get  = "stock.prices",
+           from = today() - years(23)) %>%
+    tq_transmute(select     = adjusted, 
+                 mutate_fun = periodReturn, 
+                 period     = "yearly", 
+                 col_rename = "Rb")
+summary(Rb)
+#Average yearly return is .004846
 
-data <- data %>%
-  mutate(daily_return_aapl = AAPL/lag(AAPL) - 1,
-         daily_return_spy = SPY/lag(SPY) - 1)
-         ###mutate(daily_return_rf = RF/252))
 
-# Create scatterplot of returns
-ggplot(data, aes(x = daily_return_spy, y = daily_return_aapl)) +
-  geom_point() +
-  labs(x = "S&P 500 Returns", y = "AAPL Returns") +
-  ggtitle("AAPL vs. S&P 500 Returns")
+RaRb <- left_join(Ra, Rb, by = c("date" = "date"))
+RaRb
 
-# Calculate beta and alpha coefficients
+RaRb_capm <- RaRb %>%
+    tq_performance(Ra = Ra, 
+                   Rb = Rb, 
+                   performance_fun = table.CAPM)
+RaRb_capm
 
-###model <- lm(daily_return_aapl ~ daily_return_spy + daily_rf_rate, data = data)
-#summary(model)
-
-# Interpret results
-
-###beta <- coef(model)["daily_return_spy"]
-###alpha <- coef(model)["(Intercept)"]
 
 ```
 
-```{r}
-# load required packages
-library(dplyr)
-library(ggplot2)
-library(lubridate)
+# Analysis on Apple's Alpha
 
-# read data from CSV files
-AAPL <- read.csv("AAPL.csv")
-SPY <- read.csv("SPY.csv")
-RF <- read.csv("RF.csv")
+An alpha coefficient is a measure of a stock's excess return compared to its expected return based on the market's performance, as represented by the beta coefficient. In this case, Apple's year over year alpha from 2000-2023 was .2947 higher than market. This positive value suggests that Apple's stock has provided a higher return than what would be expected based on its level of market risk.
 
-# convert date columns to date format
-AAPL$Date <- as.Date(AAPL$Date)
-SPY$Date <- as.Date(SPY$Date)
-RF$Date <- as.Date(RF$Date)
+This finding can be interpreted as a positive signal for investors, indicating that Apple has been able to generate higher returns than what would be expected from a comparable investment with the same level of risk.
 
-# merge data by date
-###data <- AAPL %>%
-  ###inner_join(SPY, by = "Date") %>%
-  ###inner_join(RF, by = "Date") %>%
-  ###mutate(daily_return_AAPL = (Adj.Close.x/lag(Adj.Close.x, 1)) - 1,
-         ###daily_return_SPY = (Adj.Close.y/lag(Adj.Close.y, 1))-1,
-         #daily_rf_rate = RF/252)
+# Analysis of Apple's Beta
 
+A beta coefficient measures the sensitivity of a stock's returns to changes in the overall market. A beta of 1 indicates that the stock moves in line with the market, while a beta greater than 1 indicates that the stock is more volatile than the market, and a beta less than 1 indicates that the stock is less volatile than the market. In the case of Apple, a beta coefficient of 1.8695 indicates that its stock price is more volatile than the overall market, as represented by the S&P 500 index. This means that changes in the S&P 500 are likely to have a larger impact on Apple's stock price compared to other stocks with lower beta coefficients.
 
-# plot daily returns of AAPL and SPY over time
-###ggplot(data, aes(x = Date)) +
-  ###geom_line(aes(y = daily_return_AAPL, color = "AAPL")) +
-  ###geom_line(aes(y = daily_return_SPY, color = "SPY")) +
-  ###labs(title = "Daily Returns of AAPL and SPY",
-      ###x = "Date", y = "Daily Return",
-       ###color = "Security") +
-  ###scale_color_manual(values = c("red", "blue")) +
-  ###theme_minimal()
-
-```
+Investors who are risk-averse may view a high beta stock like Apple as more risky than the market average, and may require a higher expected return to compensate for this additional risk. On the other hand, investors who are comfortable with taking on more risk may see Apple as an opportunity to potentially earn higher returns than the market, although this comes with the risk of larger losses during downturns.
