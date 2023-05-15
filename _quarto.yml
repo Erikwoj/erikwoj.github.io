@@ -20,7 +20,7 @@ website:
           - text: Homework 2
             href: DANL310_hw2_Wojcik_Erik.qmd
           - text: Homework 3
-            href: geyserapp.qmd
+            href: DANL310_hw3_Wojcik_Erik.qmd
             
 format:
   html:

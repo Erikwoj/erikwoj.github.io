@@ -51,21 +51,90 @@ plot(aapl$AAPL.Close, type="l", xlab="Date", ylab="Closing Price",
      main="Apple Stock Price from 2000 to 2023")
 
 ```
+# Apple's Interactive Historical Stock Price
+```{r}
+library(tidyquant)
+library(quantmod)
+library(ggplot2)
+library(plotly)
 
-# S&P 500'S Historical Stock Price
+# Downloading Apple's historical stock prices
+getSymbols("AAPL", from = "2000-01-01", to = "2023-05-08")
+
+close_price <- AAPL$AAPL.Close
+date <- index(AAPL)
+
+# Calculating the 50-day and 200-day moving averages
+ma50 <- SMA(close_price, n = 50)
+ma200 <- SMA(close_price, n = 200)
+
+df <- data.frame(Date = date, Close = coredata(close_price),
+                 MA50 = coredata(ma50), MA200 = coredata(ma200))
+
+gg <- ggplot(data = df, aes(x = Date)) +
+  geom_line(aes(y = AAPL.Close, color = "Close")) +
+  geom_line(aes(y = SMA, color = "MA50")) +
+  geom_line(aes(y = SMA.1, color = "MA200")) +
+  scale_color_manual(values = c(AAPL.Close = "blue", MA50 = "orange", MA200 = "red")) +
+  labs(title = "Apple's Moving Averages From 2000-2023",
+       y = "Price",
+       color = "Moving Average") +
+  theme_minimal()
+
+ggplotly(gg)
+```
+
+
+
+
+
+# S&P 500's Historical Stock Price
 
 ```{r}
 #S&P500 HISTORIC STOCK PRICES
 library(quantmod)
 
-# Get S&P500's stock price data from Yahoo Finance
 spy <- getSymbols("SPY", from="2000-01-01", to="2023-05-08", auto.assign=FALSE)
 
-# Ploting the closing price of S&P500's stock
 plot(spy$SPY.Close, type="l", xlab="Date", ylab="Closing Price",
      main="SPY Stock Price from 2000 to 2023")
 
 ```
+# S&P 500's Interactive Historical Stock Price 
+```{r}
+library(tidyquant)
+library(quantmod)
+library(ggplot2)
+library(plotly)
+
+# Downloading SPY's historical stock prices
+getSymbols("SPY", from = "2000-01-01", to = "2023-05-08")
+
+close_price <- SPY$SPY.Close
+date <- index(SPY)
+
+# Calculating the 50-day and 200-day moving averages
+ma50 <- SMA(close_price, n = 50)
+ma200 <- SMA(close_price, n = 200)
+
+df <- data.frame(Date = date, Close = coredata(close_price),
+                 MA50 = coredata(ma50), MA200 = coredata(ma200))
+
+gg <- ggplot(data = df, aes(x = Date)) +
+  geom_line(aes(y = SPY.Close, color = "Close")) +
+  geom_line(aes(y = SMA, color = "MA50")) +
+  geom_line(aes(y = SMA.1, color = "MA200")) +
+  scale_color_manual(values = c(SPY.Close = "blue", MA50 = "orange", MA200 = "red")) +
+  labs(title = "S&P 500's Moving Averages From 2000-2023",
+       y = "Price",
+       color = "Moving Average") +
+  theme_minimal()
+
+ggplotly(gg)
+```
+
+
+
 
 # Calculate Daily Returns for Apple and S&P 500
 
