@@ -9,8 +9,6 @@ website:
   navbar:
     pinned: true
     left:
-      - text: Apps
-        href: app.R
       - text: Midterm
         href: DANL310_midterm_Wojcik_Erik.qmd
       - text: Project 
@@ -21,6 +19,8 @@ website:
             href: DANL310_hw1_Wojcik_Erik.qmd
           - text: Homework 2
             href: DANL310_hw2_Wojcik_Erik.qmd
+          - text: Homework 3
+            href: geyserapp.qmd
             
 format:
   html:
