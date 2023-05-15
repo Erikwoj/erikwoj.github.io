@@ -38,7 +38,7 @@ The equation is:
 
 Return on Investment = Risk Free Rate + β(Return on Market - Risk Free Rate)
 
-# Apples Historical Stock Price 
+# Apples Historical Stock Price
 
 ```{r}
 #APPLES HISTORIC STOCK PRICES
@@ -46,14 +46,13 @@ library(quantmod)
 
 # Get Apple's stock price data from Yahoo Finance
 aapl <- getSymbols("AAPL", from="2000-01-01", to="2023-05-08", auto.assign=FALSE)
-
 # Plot the closing price of Apple's stock
 plot(aapl$AAPL.Close, type="l", xlab="Date", ylab="Closing Price",
      main="Apple Stock Price from 2000 to 2023")
 
 ```
 
-# S&P 500'S Historical Stock Price 
+# S&P 500'S Historical Stock Price
 
 ```{r}
 #S&P500 HISTORIC STOCK PRICES
@@ -65,6 +64,7 @@ spy <- getSymbols("SPY", from="2000-01-01", to="2023-05-08", auto.assign=FALSE)
 # Plot the closing price of S&P500's stock
 plot(spy$SPY.Close, type="l", xlab="Date", ylab="Closing Price",
      main="SPY Stock Price from 2000 to 2023")
+
 ```
 
 # Calculate Daily Returns for Apple and S&P 500
@@ -117,7 +117,7 @@ ggplot() +
 
 The x-axis represents the excess return for AAPL, while the y-axis represents the excess return for the S&P 500. The graph shows the relationship between the excess returns for Apple and the broader market as represented by the S&P 500.
 
-Tt suggests that Apple has outperformed the S&P 500, and for every positive excess return for the S&P 500, Apple has achieved a higher excess return.
+It suggests that Apple has outperformed the S&P 500, and for every positive excess return for the S&P 500, Apple has achieved a higher excess return.
 
 Additionally, the distance of each point from the origin represents the magnitude of the excess returns. If the point is closer to the origin, it suggests a lower excess return, while a point farther from the origin indicates a higher excess return. In this case the points are farther away from the origin.
 
@@ -169,5 +169,33 @@ A beta coefficient measures the sensitivity of a stock's returns to changes in t
 
 Investors who are risk-averse may view a high beta stock like Apple as more risky than the market average, and may require a higher expected return to compensate for this additional risk. On the other hand, investors who are comfortable with taking on more risk may see Apple as an opportunity to potentially earn higher returns than the market, although this comes with the risk of larger losses during downturns.
 
+# Capital Asset Price Model
 
+```{r}
+library(quantmod)
+library(tidyquant)
 
+getSymbols("AAPL", from = "2000-01-01", to = "2023-05-09")
+getSymbols("^GSPC", from = "2000-01-01", to = "2023-05-09")
+
+# Calculate monthly returns for AAPL and S&P 500
+AAPL_returns <- monthlyReturn(AAPL$AAPL.Adjusted)
+SPY_returns <- monthlyReturn(GSPC$GSPC.Adjusted)
+
+risk_free_rate <- 0.016
+
+model <- lm(AAPL_returns ~ SPY_returns)
+beta <- coef(model)[2]
+beta
+mean(SPY_returns)
+
+# Calculate expected return for AAPL using CAPM
+expected_return <- risk_free_rate + beta * (mean(SPY_returns) - risk_free_rate)
+
+expected_return
+
+```
+
+# Summary
+
+In conclusion, this research project analyzed the performance of Apple's stock compared to the S&P 500 using a Capital Asset Pricing Model (CAPM) from 2000-2023. Through data exploration and visualization, it was found that Apple's stock has outperformed the S&P 500 over the entire period. Moreover, Apple's year-over-year alpha was .2947 higher than market, suggesting that it has provided a higher return than what would be expected based on its level of market risk. However, its beta coefficient of 1.8695 indicates that its stock price is more volatile than the overall market. When trying to conduct the CAPM equation I was given a expected return of.00036 which is far under the amount expected. This could be due to N/A's or missing context. Overall, these findings suggest that while Apple is a riskier investment than the market as a whole, it has the potential to provide higher returns than other stocks with similar levels of risk. This research project can be valuable for investors, financial analysts, and researchers looking to gain a deeper understanding of the performance of Apple as an investment opportunity.
