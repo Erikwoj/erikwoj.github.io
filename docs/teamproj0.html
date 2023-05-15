@@ -157,15 +157,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
   <li><a href="#conceptual-framework" id="toc-conceptual-framework" class="nav-link" data-scroll-target="#conceptual-framework"><span class="header-section-number">2</span> Conceptual Framework</a></li>
-  <li><a href="#apples-historical-stock-price" id="toc-apples-historical-stock-price" class="nav-link" data-scroll-target="#apples-historical-stock-price"><span class="header-section-number">3</span> Apples Historical Stock Price</a></li>
+  <li><a href="#apples-historical-stock-price" id="toc-apples-historical-stock-price" class="nav-link" data-scroll-target="#apples-historical-stock-price"><span class="header-section-number">3</span> Apple’s Historical Stock Price</a></li>
   <li><a href="#sp-500s-historical-stock-price" id="toc-sp-500s-historical-stock-price" class="nav-link" data-scroll-target="#sp-500s-historical-stock-price"><span class="header-section-number">4</span> S&amp;P 500’S Historical Stock Price</a></li>
   <li><a href="#calculate-daily-returns-for-apple-and-sp-500" id="toc-calculate-daily-returns-for-apple-and-sp-500" class="nav-link" data-scroll-target="#calculate-daily-returns-for-apple-and-sp-500"><span class="header-section-number">5</span> Calculate Daily Returns for Apple and S&amp;P 500</a></li>
   <li><a href="#visualization-of-daily-returns" id="toc-visualization-of-daily-returns" class="nav-link" data-scroll-target="#visualization-of-daily-returns"><span class="header-section-number">6</span> Visualization of Daily Returns</a></li>
   <li><a href="#visualization-the-excess-returns" id="toc-visualization-the-excess-returns" class="nav-link" data-scroll-target="#visualization-the-excess-returns"><span class="header-section-number">7</span> Visualization the Excess Returns</a></li>
-  <li><a href="#capital-asset-price-model-for-apple-from-2000-2023" id="toc-capital-asset-price-model-for-apple-from-2000-2023" class="nav-link" data-scroll-target="#capital-asset-price-model-for-apple-from-2000-2023"><span class="header-section-number">8</span> Capital Asset Price Model for Apple from 2000-2023</a></li>
+  <li><a href="#capital-asset-price-model-for-apple-from-2000-2023-alpha-beta" id="toc-capital-asset-price-model-for-apple-from-2000-2023-alpha-beta" class="nav-link" data-scroll-target="#capital-asset-price-model-for-apple-from-2000-2023-alpha-beta"><span class="header-section-number">8</span> Capital Asset Price Model for Apple from 2000-2023 (Alpha &amp; Beta)</a></li>
   <li><a href="#analysis-on-apples-alpha" id="toc-analysis-on-apples-alpha" class="nav-link" data-scroll-target="#analysis-on-apples-alpha"><span class="header-section-number">9</span> Analysis on Apple’s Alpha</a></li>
   <li><a href="#analysis-of-apples-beta" id="toc-analysis-of-apples-beta" class="nav-link" data-scroll-target="#analysis-of-apples-beta"><span class="header-section-number">10</span> Analysis of Apple’s Beta</a></li>
-  <li><a href="#capital-asset-price-model" id="toc-capital-asset-price-model" class="nav-link" data-scroll-target="#capital-asset-price-model"><span class="header-section-number">11</span> Capital Asset Price Model</a></li>
+  <li><a href="#capital-asset-price-model-equation" id="toc-capital-asset-price-model-equation" class="nav-link" data-scroll-target="#capital-asset-price-model-equation"><span class="header-section-number">11</span> Capital Asset Price Model (Equation)</a></li>
   <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">12</span> Summary</a></li>
   </ul>
 </nav>
@@ -212,7 +212,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Return on Investment = Risk Free Rate + β(Return on Market - Risk Free Rate)</p>
 </section>
 <section id="apples-historical-stock-price" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Apples Historical Stock Price</h1>
+<h1 data-number="3"><span class="header-section-number">3</span> Apple’s Historical Stock Price</h1>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#APPLES HISTORIC STOCK PRICES</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quantmod)</span>
@@ -236,7 +236,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Get S&amp;P500's stock price data from Yahoo Finance</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>spy <span class="ot">&lt;-</span> <span class="fu">getSymbols</span>(<span class="st">"SPY"</span>, <span class="at">from=</span><span class="st">"2000-01-01"</span>, <span class="at">to=</span><span class="st">"2023-05-08"</span>, <span class="at">auto.assign=</span><span class="cn">FALSE</span>)</span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the closing price of S&amp;P500's stock</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Ploting the closing price of S&amp;P500's stock</span></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(spy<span class="sc">$</span>SPY.Close, <span class="at">type=</span><span class="st">"l"</span>, <span class="at">xlab=</span><span class="st">"Date"</span>, <span class="at">ylab=</span><span class="st">"Closing Price"</span>,</span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">main=</span><span class="st">"SPY Stock Price from 2000 to 2023"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -254,7 +254,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the risk-free rate (10-year Treasury bond yield)</span></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>risk_free_rate <span class="ot">&lt;-</span> <span class="fl">0.0263</span><span class="sc">/</span><span class="dv">252</span></span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the excess returns for Apple stock and the S&amp;P 500 index</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># The excess returns for Apple stock and the S&amp;P 500 index</span></span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>aapl_excess_returns <span class="ot">&lt;-</span> aapl_returns <span class="sc">-</span> risk_free_rate</span>
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>spy_excess_returns <span class="ot">&lt;-</span> spy_returns <span class="sc">-</span> risk_free_rate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -262,7 +262,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="visualization-of-daily-returns" class="level1" data-number="6">
 <h1 data-number="6"><span class="header-section-number">6</span> Visualization of Daily Returns</h1>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize the daily returns for Apple stock and the S&amp;P 500 index</span></span>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualization of the daily returns for Apple stock and the S&amp;P 500 index</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">index</span>(aapl_returns), <span class="at">y =</span> aapl_returns, <span class="at">color =</span> <span class="st">"AAPL"</span>)) <span class="sc">+</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">index</span>(spy_returns), <span class="at">y =</span> spy_returns, <span class="at">color =</span> <span class="st">"S&amp;P 500"</span>)) <span class="sc">+</span></span>
@@ -282,7 +282,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="visualization-the-excess-returns" class="level1" data-number="7">
 <h1 data-number="7"><span class="header-section-number">7</span> Visualization the Excess Returns</h1>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize the excess returns for Apple stock and the S&amp;P 500 index</span></span>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualization of the excess returns for Apple stock and the S&amp;P 500 index</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> spy_excess_returns, <span class="at">y =</span> aapl_excess_returns)) <span class="sc">+</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">x =</span> spy_excess_returns, <span class="at">y =</span> aapl_excess_returns)) <span class="sc">+</span></span>
@@ -298,13 +298,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>It suggests that Apple has outperformed the S&amp;P 500, and for every positive excess return for the S&amp;P 500, Apple has achieved a higher excess return.</p>
 <p>Additionally, the distance of each point from the origin represents the magnitude of the excess returns. If the point is closer to the origin, it suggests a lower excess return, while a point farther from the origin indicates a higher excess return. In this case the points are farther away from the origin.</p>
 </section>
-<section id="capital-asset-price-model-for-apple-from-2000-2023" class="level1" data-number="8">
-<h1 data-number="8"><span class="header-section-number">8</span> Capital Asset Price Model for Apple from 2000-2023</h1>
+<section id="capital-asset-price-model-for-apple-from-2000-2023-alpha-beta" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Capital Asset Price Model for Apple from 2000-2023 (Alpha &amp; Beta)</h1>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyquant)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Import stock prices</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Importing stock prices</span></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>stock_prices <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"AAPL"</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tq_get</span>(<span class="at">get  =</span> <span class="st">"stock.prices"</span>,</span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">from =</span> <span class="fu">today</span>() <span class="sc">-</span> <span class="fu">years</span>(<span class="dv">23</span>)) <span class="sc">%&gt;%</span></span>
@@ -350,8 +350,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>A beta coefficient measures the sensitivity of a stock’s returns to changes in the overall market. A beta of 1 indicates that the stock moves in line with the market, while a beta greater than 1 indicates that the stock is more volatile than the market, and a beta less than 1 indicates that the stock is less volatile than the market. In the case of Apple, a beta coefficient of 1.8695 indicates that its stock price is more volatile than the overall market, as represented by the S&amp;P 500 index. This means that changes in the S&amp;P 500 are likely to have a larger impact on Apple’s stock price compared to other stocks with lower beta coefficients.</p>
 <p>Investors who are risk-averse may view a high beta stock like Apple as more risky than the market average, and may require a higher expected return to compensate for this additional risk. On the other hand, investors who are comfortable with taking on more risk may see Apple as an opportunity to potentially earn higher returns than the market, although this comes with the risk of larger losses during downturns.</p>
 </section>
-<section id="capital-asset-price-model" class="level1" data-number="11">
-<h1 data-number="11"><span class="header-section-number">11</span> Capital Asset Price Model</h1>
+<section id="capital-asset-price-model-equation" class="level1" data-number="11">
+<h1 data-number="11"><span class="header-section-number">11</span> Capital Asset Price Model (Equation)</h1>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quantmod)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyquant)</span>
@@ -364,7 +364,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "GSPC"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate monthly returns for AAPL and S&amp;P 500</span></span>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Monthly returns for AAPL and S&amp;P 500</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>AAPL_returns <span class="ot">&lt;-</span> <span class="fu">monthlyReturn</span>(AAPL<span class="sc">$</span>AAPL.Adjusted)</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>SPY_returns <span class="ot">&lt;-</span> <span class="fu">monthlyReturn</span>(GSPC<span class="sc">$</span>GSPC.Adjusted)</span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -372,28 +372,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(AAPL_returns <span class="sc">~</span> SPY_returns)</span>
 <span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>beta <span class="ot">&lt;-</span> <span class="fu">coef</span>(model)[<span class="dv">2</span>]</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>beta</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>SPY_returns 
-   1.386971 </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(SPY_returns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.004723673</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate expected return for AAPL using CAPM</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>expected_return <span class="ot">&lt;-</span> risk_free_rate <span class="sc">+</span> beta <span class="sc">*</span> (<span class="fu">mean</span>(SPY_returns) <span class="sc">-</span> risk_free_rate)</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>expected_return</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Expected return for AAPL using CAPM</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>expected_return <span class="ot">&lt;-</span> risk_free_rate <span class="sc">+</span> beta <span class="sc">*</span> (<span class="fu">mean</span>(SPY_returns) <span class="sc">-</span> risk_free_rate)</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>expected_return</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> SPY_returns 
-0.0003600655 </code></pre>
+0.0003600651 </code></pre>
 </div>
 </div>
 </section>
 <section id="summary" class="level1" data-number="12">
 <h1 data-number="12"><span class="header-section-number">12</span> Summary</h1>
-<p>In conclusion, this research project analyzed the performance of Apple’s stock compared to the S&amp;P 500 using a Capital Asset Pricing Model (CAPM) from 2000-2023. Through data exploration and visualization, it was found that Apple’s stock has outperformed the S&amp;P 500 over the entire period. Moreover, Apple’s year-over-year alpha was .2947 higher than market, suggesting that it has provided a higher return than what would be expected based on its level of market risk. However, its beta coefficient of 1.8695 indicates that its stock price is more volatile than the overall market. When trying to conduct the CAPM equation I was given a expected return of.00036 which is far under the amount expected. This could be due to N/A’s or missing context. Overall, these findings suggest that while Apple is a riskier investment than the market as a whole, it has the potential to provide higher returns than other stocks with similar levels of risk. This research project can be valuable for investors, financial analysts, and researchers looking to gain a deeper understanding of the performance of Apple as an investment opportunity.</p>
+<p>In conclusion, this research project analyzed the performance of Apple’s stock compared to the S&amp;P 500 using a Capital Asset Pricing Model (CAPM) from 2000-2023.</p>
+<p>Through data exploration and visualization, it was found that Apple’s stock has outperformed the S&amp;P 500 over the entire period. Moreover, Apple’s year-over-year alpha was .2947 higher than market, suggesting that it has provided a higher return than what would be expected based on its level of market risk. However, its beta coefficient of 1.8695 indicates that its stock price is more volatile than the overall market. When trying to conduct the CAPM equation I was given a expected return of .00036 which is far under the amount expected. This could be due to N/A’s or missing context.</p>
+<p>Overall, these findings suggest that while Apple is a riskier investment than the market as a whole, it has the potential to provide higher returns than other stocks with similar levels of risk. This research project can be valuable for investors, financial analysts, and researchers looking to gain a deeper understanding of the performance of Apple as an investment opportunity.</p>
 
 
 </section>
