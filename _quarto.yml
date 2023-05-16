@@ -16,7 +16,7 @@ website:
           - text: Project
           - href: teamproj0.qmd
           - text: Shiny App for Project 
-          - href: appleshiny.qmd
+          - href: shiny.qmd
       - text: Homework
         menu:
           - text: Homework 1
