@@ -1,5 +1,5 @@
 ---
-title: "appleshiny"
+title: "Interactive Stock Chart for Apple's Historical Price from 2000-2023"
 editor: visual
 ---
 ```{=html}
