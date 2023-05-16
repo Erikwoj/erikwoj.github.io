@@ -1,0 +1,14 @@
+name: shinyapple
+title: shinyapple
+username:
+account: erikwoj
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 9116114
+bundleId: 7222388
+url: https://erikwoj.shinyapps.io/shinyapple/
+when: 1684198691.54254
+lastSyncTime: 1684198691.54255
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: _content/.DS_Store|_quarto.yml|AAPL.csv|App/app.R|App/rsconnect/shinyapps.io/erikwoj/WojApp.dcf|app.R|App2/app.R|App2/rsconnect/shinyapps.io/erikwoj/EriksApp.dcf|App3/app.R|basic-example.qmd|bfg-1.14.0.jar|cowfiltered.png|custom.css|DANL310_hw1_Wojcik_Erik.qmd|DANL310_hw2_Wojcik_Erik.qmd|DANL310_hw3_Wojcik_Erik.qmd|DANL310_midterm_Wojcik_Erik.qmd|data/tvshows.csv|Erik's_Website.qmd|Erik R. Wojcik Resume 2022.pdf|Erik R. Wojcik Resume 2023.pdf|Erik_R._Wojcik_Resume_2023.pdf|Geyser/Geyser.R|Geyser2/app.R|GeyserApp.R|hw1_files/figure-html/unnamed-chunk-1-1.png|hw1_files/figure-html/unnamed-chunk-2-1.png|img/.DS_Store|img/geneseo-logo-vertical.png|img/logo.png|Lecture-4-DANL-310_files/figure-html/unnamed-chunk-1-1.png|Lecture-4-DANL-310_files/figure-html/unnamed-chunk-2-1.png|Lecture-4-DANL-310_files/figure-html/unnamed-chunk-3-1.png|Lecture-4-DANL-310_files/figure-html/unnamed-chunk-4-1.png|lifexp_vs_gdp_gradient.pdf|links.js|male_Aus.png|maleu_Aus.png|mtcars.png|my_figure.pdf|my_figure.png|ncdc.png|ncdc_temp1.png|ncdc_temp2.png|popgrowth_df.png|README.md|RF.csv|rmarkdown-reference.pdf|rmarkdown.pdf|shiny-01.qmd|SPY.csv|target_blank.html|teamproj0.qmd|theme-dark.scss|titanic.png|titanic2.png|USResearch_m_197501_202302/F-F_Research_Data_Factors.csv

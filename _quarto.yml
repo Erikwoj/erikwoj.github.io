@@ -11,8 +11,12 @@ website:
     left:
       - text: Midterm
         href: DANL310_midterm_Wojcik_Erik.qmd
-      - text: Project 
-        href: teamproj0.qmd
+      - text: Research Project 
+        menu :
+          - text: Project
+          - href: teamproj0.qmd
+          - text: Shiny App for Project 
+          - href: appleshiny.qmd
       - text: Homework
         menu:
           - text: Homework 1
